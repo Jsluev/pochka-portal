@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Клиники и центры — где лечат детей с болезнями почек | Фонд «Настенька»</title>
+<meta name="description" content="Каталог медицинских центров, где лечат детей с болезнями почек: федеральные центры, диализ, трансплантация, диагностика. С практическими деталями от семей.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="clinics">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg>
+      </span>
+      <span class="brand-text"><b>почка</b><small>навигатор для семей · проект фонда «Настенька»</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="routes.html">Маршруты и помощь</a>
+      <a class="is-active" href="clinics.html">Клиники и центры</a>
+      <a href="rights.html">Права и документы</a>
+      <a href="knowledge.html">База знаний</a>
+      <a href="community.html">Сообщество и фонд</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-accent btn-sm" href="https://nastenka.ru/" target="_blank" rel="noopener">Помочь</a>
+      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <nav class="crumbs"><a href="index.html">Главная</a> / <span>Клиники и центры</span></nav>
+
+  <div class="page-head">
+    <span class="eyebrow">Куда обращаться</span>
+    <h1>Клиники и центры, где лечат детей с болезнями почек</h1>
+    <p class="sub">Каталог отвечает не только на вопрос «где лечат», но и на «кого принимают, как туда попасть и как устроена жизнь вокруг». Подберите центр по возрасту ребёнка, нужному виду помощи и региону.</p>
+  </div>
+
+  <div class="note" style="margin-bottom:20px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <span><b>Демо-версия.</b> Данные карточек — демонстрационные. Перед запуском каждое учреждение подтверждает свою карточку, контакты и условия приёма.</span>
+  </div>
+
+  <!-- Фильтры -->
+  <div class="filters">
+    <div class="filters-row">
+      <input type="search" id="fSearch" placeholder="Поиск: название центра, город, вид помощи…">
+      <select id="fType" aria-label="Тип центра">
+        <option value="">Тип: любой</option>
+        <option value="federal">Федеральные центры</option>
+        <option value="regional">Региональные и городские</option>
+      </select>
+      <select id="fCity" aria-label="Город">
+        <option value="">Город: любой</option>
+        <option value="moscow">Москва</option>
+        <option value="spb">Санкт-Петербург</option>
+        <option value="regions">Другие регионы</option>
+      </select>
+      <select id="fHelp" aria-label="Вид помощи">
+        <option value="">Помощь: любая</option>
+        <option value="diagnostic">Диагностика</option>
+        <option value="dialysis">Диализ</option>
+        <option value="transplant">Трансплантация</option>
+        <option value="followup">Наблюдение</option>
+      </select>
+      <select id="fAge" aria-label="Возраст ребёнка">
+        <option value="">Возраст: любой</option>
+        <option value="small">Малыши до 3 лет (до 10 кг)</option>
+        <option value="child">Дети 3–14 лет</option>
+        <option value="teen">Подростки 14+</option>
+      </select>
+      <button class="btn btn-ghost btn-sm" id="fReset" type="button">Сбросить</button>
+    </div>
+    <div>
+      <div class="filters-label" style="margin-bottom:8px">Быстрые фильтры</div>
+      <div class="chips-row" id="filterChips">
+        <button class="chip" data-filter="help" data-value="transplant" type="button">Трансплантация</button>
+        <button class="chip" data-filter="help" data-value="dialysis" type="button">Диализ</button>
+        <button class="chip" data-filter="help" data-value="diagnostic" type="button">Диагностика</button>
+        <button class="chip" data-filter="help" data-value="followup" type="button">Наблюдение</button>
+        <button class="chip" data-filter="consult" data-value="yes" type="button">Есть заочная консультация</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="count-line">
+    <span class="count" id="clinicCount">Показано: 6 из 6 центров</span>
+  </div>
+
+  <!-- Сетка клиник -->
+  <div class="clinics-grid" id="clinicGrid">
+
+    <a class="clinic-card" href="clinic-card.html"
+       data-type="federal" data-city="moscow"
+       data-help="diagnostic transplant followup"
+       data-ages="child teen" data-consult="yes">
+      <div class="clinic-top"><span class="tag">Федеральный центр</span><span class="tag-outline">Москва</span></div>
+      <div class="clinic-name">НМИЦ трансплантологии и искусственных органов им. акад. В. И. Шумакова</div>
+      <p class="clinic-sum">Главный центр детской трансплантации почки: родственная и посмертная пересадка, лист ожидания, ведение после операции.</p>
+      <div class="clinic-meta">
+        <div><b>Кого принимают:</b> дети с ХБП 4–5 стадии (трансплантация от 10 кг — уточняется)</div>
+        <div><b>Регионы:</b> вся Россия — по направлению (ОМС/ВМП)</div>
+        <div><b>В 2025 году:</b> 145 детских трансплантаций почки (69 родственных, 76 посмертных)</div>
+      </div>
+      <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
+    </a>
+
+    <a class="clinic-card" href="clinic-card.html"
+       data-type="federal" data-city="moscow"
+       data-help="diagnostic dialysis transplant followup"
+       data-ages="small child teen" data-consult="yes">
+      <div class="clinic-top"><span class="tag">Федеральный центр</span><span class="tag-outline">Москва</span></div>
+      <div class="clinic-name">НМИЦ здоровья детей</div>
+      <p class="clinic-sum">Диагностика редких заболеваний почек, диализ детям от 3 кг, трансплантация детям с весом до 10 кг — по показаниям.</p>
+      <div class="clinic-meta">
+        <div><b>Кого принимают:</b> дети любого возраста, в том числе с массой тела от 3 кг</div>
+        <div><b>Регионы:</b> все регионы России</div>
+        <div><b>Особенность:</b> опыт ведения самых маленьких пациентов</div>
+      </div>
+      <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
+    </a>
+
+    <a class="clinic-card" href="clinic-card.html"
+       data-type="federal" data-city="moscow"
+       data-help="diagnostic dialysis transplant followup"
+       data-ages="small child teen" data-consult="yes">
+      <div class="clinic-top"><span class="tag">Федеральный центр</span><span class="tag-outline">Москва</span></div>
+      <div class="clinic-name">РДКБ — филиал НМИЦ ДГОИ им. Дмитрия Рогачёва</div>
+      <p class="clinic-sum">Нефрологическое отделение: ведение ХБП, диализ, подготовка к трансплантации и сопровождение после неё.</p>
+      <div class="clinic-meta">
+        <div><b>Кого принимают:</b> дети всех возрастов</div>
+        <div><b>Регионы:</b> вся Россия — по направлению</div>
+        <div><b>Особенность:</b> комплексное сопровождение «диагноз → пересадка»</div>
+      </div>
+      <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
+    </a>
+
+    <a class="clinic-card" href="clinic-card.html"
+       data-type="regional" data-city="moscow"
+       data-help="diagnostic dialysis followup"
+       data-ages="small child teen" data-consult="yes">
+      <div class="clinic-top"><span class="tag tag-coral">Городская больница</span><span class="tag-outline">Москва</span></div>
+      <div class="clinic-name">ДГКБ им. Н. Ф. Филатова</div>
+      <p class="clinic-sum">Крупнейшая детская клиника Москвы: отделение диализа, ведение детей с ХБП, подготовка к трансплантации.</p>
+      <div class="clinic-meta">
+        <div><b>Кого принимают:</b> дети всех возрастов</div>
+        <div><b>Регионы:</b> Москва; иногородние — по направлению</div>
+        <div><b>Особенность:</b> отделение диализа под руководством врача-нефролога, к.м.н.</div>
+      </div>
+      <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
+    </a>
+
+    <a class="clinic-card" href="clinic-card.html"
+       data-type="federal" data-city="spb"
+       data-help="diagnostic dialysis transplant followup"
+       data-ages="small child teen" data-consult="yes">
+      <div class="clinic-top"><span class="tag">Федеральный центр</span><span class="tag-outline">Санкт-Петербург</span></div>
+      <div class="clinic-name">СПбГПМУ (Педиатрический университет)</div>
+      <p class="clinic-sum">Детская нефрология, диализ и трансплантация почки. Один из шести центров детской трансплантации в России.</p>
+      <div class="clinic-meta">
+        <div><b>Кого принимают:</b> дети всех возрастов</div>
+        <div><b>Регионы:</b> СЗФО и вся Россия — по направлению</div>
+        <div><b>Особенность:</b> трансплантация вне Москвы</div>
+      </div>
+      <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
+    </a>
+
+    <a class="clinic-card" href="clinic-card.html"
+       data-type="regional" data-city="regions"
+       data-help="diagnostic dialysis followup"
+       data-ages="child teen" data-consult="no">
+      <div class="clinic-top"><span class="tag tag-coral">Региональный центр</span><span class="tag-outline">Екатеринбург</span></div>
+      <div class="clinic-name">ОДКБ № 1, Екатеринбург</div>
+      <p class="clinic-sum">Нефрологическое отделение и гемодиализ детям в регионе. Наблюдение и подготовка к трансплантации — совместно с федеральными центрами.</p>
+      <div class="clinic-meta">
+        <div><b>Кого принимают:</b> дети 3+ лет</div>
+        <div><b>Регионы:</b> Уральский федеральный округ</div>
+        <div><b>Особенность:</b> диализ рядом с домом — без переезда на этом этапе</div>
+      </div>
+      <div class="clinic-foot"><span class="tag-outline">Заочная консультация: уточняется</span><span class="more">Карточка центра →</span></div>
+    </a>
+
+  </div>
+
+  <div class="empty" id="clinicEmpty">
+    <b>Ничего не нашлось.</b><br>
+    Попробуйте сбросить фильтры — или напишите в чат «Пересадка»: родители подскажут, куда обращались с похожей ситуацией.
+  </div>
+
+  <!-- Как пользоваться -->
+  <div class="block mt-32">
+    <h3>Как читать карточки центров</h3>
+    <p class="block-sub">Мы собираем не только официальные данные, но и то, что важно на практике.</p>
+    <div class="article sub-grid" style="margin-top:0;padding:0;border:0">
+      <div class="sub-card">
+        <h4>Кого принимают</h4>
+        <p>Возраст и минимальный вес ребёнка, при каких диагнозах берут, принимают ли из других регионов.</p>
+      </div>
+      <div class="sub-card">
+        <h4>Как сюда попасть</h4>
+        <p>Конкретный алгоритм для этого центра: куда и какие документы подавать, что важно в выписке.</p>
+      </div>
+      <div class="sub-card">
+        <h4>Быт и устройство жизни</h4>
+        <p>Совместное пребывание с ребёнком, условия в отделении, где жить рядом, школа для госпитализированных детей.</p>
+      </div>
+      <div class="sub-card">
+        <h4>Опыт семей</h4>
+        <p>Короткие заметки родителей, которые лечились здесь, и ссылка на обсуждение центра в чате «Пересадка».</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg>
+          </span>
+          <span class="brand-text"><b style="color:#fff">почка</b><small>навигатор для семей</small></span>
+        </a>
+        <p>Информационный портал благотворительного фонда «Настенька» для семей, где растут дети с болезнями почек.</p>
+        <div class="socials">
+          <a href="https://vk.com/fondnastenka" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
+          <a href="https://t.me/bf_nastenka" target="_blank" rel="noopener" title="Telegram">TG</a>
+          <a href="https://ok.ru/fondnastenka" target="_blank" rel="noopener" title="Одноклассники">OK</a>
+          <a href="https://dzen.ru/fondnastenka" target="_blank" rel="noopener" title="Дзен">Дз</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Разделы</h5>
+        <a href="routes.html">Маршруты и помощь</a>
+        <a href="clinics.html">Клиники и центры</a>
+        <a href="rights.html">Права и документы</a>
+        <a href="knowledge.html">База знаний</a>
+        <a href="community.html">Сообщество и фонд</a>
+      </div>
+      <div class="footer-col">
+        <h5>Фонд «Настенька»</h5>
+        <p><a href="tel:+79855501746">+7 985 550-17-46</a></p>
+        <p><a href="tel:+79255854101">+7 925 585-41-01</a></p>
+        <p><a href="mailto:fond@nastenka.ru">fond@nastenka.ru</a></p>
+        <p style="margin-top:8px">115211, г. Москва, Каширское ш., д. 51, к. 2</p>
+        <p>пн–пт, 10:00–18:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Портал — информационный проект фонда «Настенька». Материалы не заменяют консультацию врача. При тревожных симптомах обратитесь к педиатру или вызовите скорую помощь.</p>
+      <p>© 2026 Благотворительный фонд «Настенька» · Это прототип: данные о клиниках и контакты — демонстрационные, перед запуском проверяются с учреждениями.</p>
+      <p><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

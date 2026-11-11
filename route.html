@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Маршрут: из региона в федеральный центр | Фонд «Настенька»</title>
+<meta name="description" content="Пошаговый маршрут попадания в федеральный центр: выписка, заочная консультация, вызов, форма 057/у, документы и поездка.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="routes">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg>
+      </span>
+      <span class="brand-text"><b>почка</b><small>навигатор для семей · проект фонда «Настенька»</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a class="is-active" href="routes.html">Маршруты и помощь</a>
+      <a href="clinics.html">Клиники и центры</a>
+      <a href="rights.html">Права и документы</a>
+      <a href="knowledge.html">База знаний</a>
+      <a href="community.html">Сообщество и фонд</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-accent btn-sm" href="https://nastenka.ru/" target="_blank" rel="noopener">Помочь</a>
+      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <nav class="crumbs"><a href="index.html">Главная</a> / <a href="routes.html">Маршруты и помощь</a> / <span>Из региона в федеральный центр</span></nav>
+
+  <div class="page-head">
+    <span class="eyebrow">Главный маршрут · обычно 3–8 недель</span>
+    <h1>Из региона в федеральный центр</h1>
+    <p class="sub">Полный путь: от выписки регионального врача до госпитализации в федеральном центре. На каждом шаге — «как положено по закону» и «как это бывает в жизни».</p>
+  </div>
+
+  <!-- Прогресс маршрута -->
+  <div class="route-progress">
+    <span class="rp-label">Маршрут: <b id="rpText">шаг 1 из 6</b></span>
+    <div class="rp-track"><i id="rpBar"></i></div>
+  </div>
+
+  <div class="route-layout" data-steps data-progress="1">
+    <!-- Навигация по шагам -->
+    <div class="steps-nav">
+      <button class="step-btn" data-step="s1" type="button">
+        <span class="step-num">1</span>
+        <span><span class="step-title">Выписка и рекомендация врача</span><span class="step-time">1–3 дня</span></span>
+      </button>
+      <button class="step-btn" data-step="s2" type="button">
+        <span class="step-num">2</span>
+        <span><span class="step-title">Выбор центра и заочная консультация</span><span class="step-time">1–2 недели</span></span>
+      </button>
+      <button class="step-btn" data-step="s3" type="button">
+        <span class="step-num">3</span>
+        <span><span class="step-title">Вызов на госпитализацию</span><span class="step-time">10–30 дней</span></span>
+      </button>
+      <button class="step-btn" data-step="s4" type="button">
+        <span class="step-num">4</span>
+        <span><span class="step-title">Направление по форме 057/у</span><span class="step-time">2–10 дней</span></span>
+      </button>
+      <button class="step-btn" data-step="s5" type="button">
+        <span class="step-num">5</span>
+        <span><span class="step-title">Анализы и пакет документов</span><span class="step-time">3–7 дней</span></span>
+      </button>
+      <button class="step-btn" data-step="s6" type="button">
+        <span class="step-num">6</span>
+        <span><span class="step-title">Поездка и госпитализация</span><span class="step-time">день Х</span></span>
+      </button>
+    </div>
+
+    <!-- Панели шагов -->
+    <div>
+      <div class="step-panel" data-step="s1">
+        <h3>Шаг 1. Выписка и рекомендация врача</h3>
+        <p class="step-sub">Всё начинается с бумажного следа: без грамотной выписки не работает ни один следующий шаг.</p>
+        <div class="layers">
+          <div class="layer layer-law">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              По закону
+            </h4>
+            <p>Лечащий врач оформляет выписку (эпикриз): диагноз, проведённое лечение, результаты обследований. Если ребёнку нужна помощь федерального уровня, в выписке появляется рекомендация о консультации в федеральном центре.</p>
+          </div>
+          <div class="layer layer-life">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.3-9C1.3 8.6 3.4 5.5 6.7 5.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.3 0 5.4 3.1 4 6.5C18.9 16.3 12 21 12 21z"/></svg>
+              На практике
+            </h4>
+            <p>Попросите врача указать в выписке конкретный центр или хотя бы профиль — это сильно упростит следующий шаг.</p>
+            <div class="quote">«Мне сказали, что нужно дообследование в федеральном центре. Но дальше я не понимала, куда именно обращаться и что я должна сделать сначала»<cite>— мама из Красноярска, исследование фонда</cite></div>
+          </div>
+        </div>
+        <div class="step-docs">
+          <h5>Что должно быть на руках</h5>
+          <span class="doc-chip">Выписка (эпикриз)</span>
+          <span class="doc-chip">Результаты анализов и исследований</span>
+        </div>
+        <div class="step-nav-bottom">
+          <span></span>
+          <button class="btn btn-primary btn-sm" data-go="s2" type="button">Шаг 2: выбрать центр <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="step-panel" data-step="s2">
+        <h3>Шаг 2. Выбор центра и заочная консультация</h3>
+        <p class="step-sub">Сначала центр «смотрит» документы заочно — и только потом приглашает на госпитализацию.</p>
+        <div class="layers">
+          <div class="layer layer-law">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              По закону
+            </h4>
+            <p>Документы можно направить в центр по почте, через форму на сайте или по телемедицине «врач–врач»: ваш врач связывается со специалистами центра и передаёт данные. Направление 057/у на этапе заочной консультации обычно не требуется.</p>
+          </div>
+          <div class="layer layer-life">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.3-9C1.3 8.6 3.4 5.5 6.7 5.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.3 0 5.4 3.1 4 6.5C18.9 16.3 12 21 12 21z"/></svg>
+              На практике
+            </h4>
+            <p>Отправляйте сразу полный пакет документов: досылки сдвигают срок рассмотрения. Подходящий центр можно подобрать в каталоге — по возрасту ребёнка и нужному виду помощи.</p>
+            <div class="quote">«Первый вопрос был не „что у нас“, а „где вообще это делают детям“. Я несколько дней искала информацию и обзванивала больницы»<cite>— мама из Ростова-на-Дону, исследование фонда</cite></div>
+          </div>
+        </div>
+        <div class="step-docs">
+          <h5>Что понадобится</h5>
+          <span class="doc-chip">Выписка</span>
+          <span class="doc-chip">Свежие анализы</span>
+          <span class="doc-chip">СНИЛС</span>
+          <span class="doc-chip">Полис ОМС</span>
+          <span class="doc-chip">Паспорт родителя</span>
+          <span class="doc-chip">Согласие на обработку данных</span>
+        </div>
+        <a class="btn btn-ghost btn-sm mt-16" href="clinics.html?need=consult">Подобрать центр с заочной консультацией</a>
+        <div class="step-nav-bottom">
+          <button class="btn btn-ghost btn-sm" data-go="s1" type="button">← Назад</button>
+          <button class="btn btn-primary btn-sm" data-go="s3" type="button">Шаг 3: ждать вызов <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="step-panel" data-step="s3">
+        <h3>Шаг 3. Вызов на госпитализацию</h3>
+        <p class="step-sub">Центр рассматривает документы и присылает официальный вызов с датой госпитализации.</p>
+        <div class="layers">
+          <div class="layer layer-law">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              По закону
+            </h4>
+            <p>Решение о госпитализации принимает врачебная комиссия центра. Ответ обычно приходит в течение 10–30 дней. Вызов — официальный документ с датой и списком того, что нужно привезти.</p>
+          </div>
+          <div class="layer layer-life">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.3-9C1.3 8.6 3.4 5.5 6.7 5.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.3 0 5.4 3.1 4 6.5C18.9 16.3 12 21 12 21z"/></svg>
+              На практике
+            </h4>
+            <p>Если ответа нет дольше месяца — позвоните в отдел госпитализации и уточните статус. Семьи в чате «Пересадка» охотно делятся, как долго ждали ответ именно их центры.</p>
+            <div class="quote">«Даже одна неправильно оформленная бумажка может привести к тому, что госпитализацию отменят»<cite>— из интервью с родителями, исследование фонда</cite></div>
+          </div>
+        </div>
+        <div class="step-nav-bottom">
+          <button class="btn btn-ghost btn-sm" data-go="s2" type="button">← Назад</button>
+          <button class="btn btn-primary btn-sm" data-go="s4" type="button">Шаг 4: оформить 057/у <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="step-panel" data-step="s4">
+        <h3>Шаг 4. Направление по форме 057/у</h3>
+        <p class="step-sub">Самый «бюрократический» шаг маршрута. На него уходит больше всего нервов — поэтому здесь два слоя максимально подробны.</p>
+        <div class="layers">
+          <div class="layer layer-law">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              По закону
+            </h4>
+            <p>Форму 057/у-04 выдаёт поликлиника по месту жительства на основании вызова центра. Для высокотехнологичной помощи (ВМП, в том числе трансплантация) дополнительно оформляется талон ВМП через региональный орган здравоохранения.</p>
+          </div>
+          <div class="layer layer-life">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.3-9C1.3 8.6 3.4 5.5 6.7 5.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.3 0 5.4 3.1 4 6.5C18.9 16.3 12 21 12 21z"/></svg>
+              На практике
+            </h4>
+            <p>Поликлиники нередко отказывают в направлении в федеральный центр, потому что это «другой источник финансирования». Что помогает: сначала получить официальный вызов от центра и уже с ним письменно запросить 057/у.</p>
+            <div class="quote">«Мы в Москве, но попасть в федеральный центр оказалось сложно: поликлиника не давала направление — это разные источники финансирования. Пришлось ругаться и искать варианты решения»<cite>— мама из Москвы, исследование фонда</cite></div>
+          </div>
+        </div>
+        <div class="note mt-16">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+          <span><b>Если отказывают:</b> письменный запрос → отказ в письменной форме → жалоба в страховую компанию по ОМС → региональный Минздрав → Росздравнадзор. Подробная инструкция — в разделе «Права и документы».</span>
+        </div>
+        <a class="btn btn-ghost btn-sm mt-16" href="rights.html#057">Инструкция при отказе в 057/у</a>
+        <div class="step-nav-bottom">
+          <button class="btn btn-ghost btn-sm" data-go="s3" type="button">← Назад</button>
+          <button class="btn btn-primary btn-sm" data-go="s5" type="button">Шаг 5: собрать документы <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="step-panel" data-step="s5">
+        <h3>Шаг 5. Анализы и пакет документов</h3>
+        <p class="step-sub">Финальная сборка перед поездкой. У каждого центра свой список и свои сроки давности анализов.</p>
+        <div class="layers">
+          <div class="layer layer-law">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              По закону
+            </h4>
+            <p>Анализы сдаются по списку, который присылает центр вместе с вызовом. Общие анализы крови и мочи можно сдать в поликлинике по месту жительства бесплатно по ОМС.</p>
+          </div>
+          <div class="layer layer-life">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.3-9C1.3 8.6 3.4 5.5 6.7 5.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.3 0 5.4 3.1 4 6.5C18.9 16.3 12 21 12 21z"/></svg>
+              На практике
+            </h4>
+            <p>Попросите врача или координатора фонда проверить пакет документов перед поездкой — одна ошибка может стоить недель ожидания. Списки и сроки давности у центров различаются, уточняйте в отделе госпитализации.</p>
+            <div class="quote">«Вроде бы каждый отдельный шаг несложный. Но никто не дал мне всей последовательности. Поэтому я постоянно выясняла следующий шаг уже после того, как закончила предыдущий»<cite>— мама из Тюмени, исследование фонда</cite></div>
+          </div>
+        </div>
+        <div class="step-docs">
+          <h5>Что понадобится</h5>
+          <span class="doc-chip">Форма 057/у</span>
+          <span class="doc-chip">Выписка</span>
+          <span class="doc-chip">Свежие анализы</span>
+          <span class="doc-chip">Полис ОМС</span>
+          <span class="doc-chip">СНИЛС</span>
+          <span class="doc-chip">Свидетельство о рождении</span>
+          <span class="doc-chip">Паспорт родителя</span>
+          <span class="doc-chip">Справки по требованию центра</span>
+        </div>
+        <div class="step-nav-bottom">
+          <button class="btn btn-ghost btn-sm" data-go="s4" type="button">← Назад</button>
+          <button class="btn btn-primary btn-sm" data-go="s6" type="button">Шаг 6: поездка <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="step-panel" data-step="s6">
+        <h3>Шаг 6. Поездка и госпитализация</h3>
+        <p class="step-sub">День Х. Что взять с собой и как устроить жизнь на время лечения.</p>
+        <div class="layers">
+          <div class="layer layer-law">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+              По закону
+            </h4>
+            <p>Лечение по ОМС/ВМП бесплатно для семьи. При оформленной инвалидности действуют льготы на проезд ребёнка и сопровождающего. На время госпитализации дети продолжают учёбу с госпитальными педагогами («УчимЗнаем»).</p>
+          </div>
+          <div class="layer layer-life">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.3-9C1.3 8.6 3.4 5.5 6.7 5.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.3 0 5.4 3.1 4 6.5C18.9 16.3 12 21 12 21z"/></svg>
+              На практике
+            </h4>
+            <p>Если лечение и ожидание затягиваются, фонд «Настенька» бесплатно арендует квартиры в Москве — в 2025 году жильё получили 44 семьи. Что взять в конкретное отделение, подскажут родители в чате «Пересадка».</p>
+          </div>
+        </div>
+        <div class="step-docs">
+          <h5>Что взять с собой</h5>
+          <span class="doc-chip">Пакет документов (шаг 5)</span>
+          <span class="doc-chip">Личные вещи ребёнка и родителя</span>
+          <span class="doc-chip">Привычные лекарства</span>
+          <span class="doc-chip">Питьевая вода в дорогу</span>
+        </div>
+        <a class="btn btn-ghost btn-sm mt-16" href="community.html">Помощь фонда с жильём в Москве</a>
+        <div class="step-nav-bottom">
+          <button class="btn btn-ghost btn-sm" data-go="s5" type="button">← Назад</button>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="block mt-32">
+    <h3>Частые вопросы об этом маршруте</h3>
+    <p class="block-sub">Если вашего вопроса нет — задайте его в чате «Пересадка».</p>
+    <details class="faq">
+      <summary>Сколько ждать ответа от федерального центра?</summary>
+      <div class="faq-body">Обычно 10–30 дней с момента получения полного пакета документов. Если ответа нет дольше месяца — позвоните в отдел госпитализации центра и уточните статус рассмотрения.</div>
+    </details>
+    <details class="faq">
+      <summary>Можно ли попасть в центр без формы 057/у?</summary>
+      <div class="faq-body">На заочную консультацию — да, 057/у обычно не требуется. А вот на госпитализацию нужны и официальный вызов центра, и направление по форме 057/у (при ВМП — талон ВМП).</div>
+    </details>
+    <details class="faq">
+      <summary>Кто оплачивает дорогу и жильё?</summary>
+      <div class="faq-body">Само лечение по ОМС/ВМП бесплатно. Проезд: льготы действуют при оформленной инвалидности, в ряде случаев расходы компенсирует регион. Жильё на время ожидания трансплантации бесплатно предоставляет фонд «Настенька» — заявка через координатора фонда.</div>
+    </details>
+    <details class="faq">
+      <summary>Что делать, если отказывают на каждом шаге?</summary>
+      <div class="faq-body">Опишите ситуацию в чате «Пересадка» или координатору фонда: подскажем, как действовать именно в вашем регионе, и поможем составить жалобу.</div>
+    </details>
+  </div>
+
+  <!-- Чек-лист перед поездкой -->
+  <div class="block" data-checklist>
+    <h3>Чек-лист перед поездкой</h3>
+    <p class="block-sub">Отметьте, что уже готово — отметки сохранятся в этом браузере, можно возвращаться и продолжать.</p>
+    <div class="checkgrid">
+      <label class="check-item"><input type="checkbox" data-check="1"><span class="check-box"></span>Вызов из центра с датой госпитализации</label>
+      <label class="check-item"><input type="checkbox" data-check="2"><span class="check-box"></span>Направление по форме 057/у</label>
+      <label class="check-item"><input type="checkbox" data-check="3"><span class="check-box"></span>Свежие анализы по списку центра</label>
+      <label class="check-item"><input type="checkbox" data-check="4"><span class="check-box"></span>Полис ОМС, СНИЛС, свидетельство о рождении</label>
+      <label class="check-item"><input type="checkbox" data-check="5"><span class="check-box"></span>Справки по требованию центра</label>
+      <label class="check-item"><input type="checkbox" data-check="6"><span class="check-box"></span>Жильё в Москве (заявка в фонд подана)</label>
+      <label class="check-item"><input type="checkbox" data-check="7"><span class="check-box"></span>Лекарства в дорогу и на первое время</label>
+      <label class="check-item"><input type="checkbox" data-check="8"><span class="check-box"></span>Контакты отделения и координатора фонда</label>
+    </div>
+    <div class="check-summary">
+      <b id="checkCount">0</b> из 8 готово
+      <span class="hand" id="checkNote">начните с вызова из центра</span>
+    </div>
+  </div>
+
+  <!-- Связанные -->
+  <div class="block">
+    <h3>Связанные материалы</h3>
+    <p class="block-sub">Что ещё пригодится на этом маршруте.</p>
+    <div class="know-grid">
+      <a class="know-card" href="clinics.html">
+        <h3>Каталог центров</h3>
+        <p>Подберите центр по возрасту ребёнка, нужному виду помощи и региону.</p>
+        <span class="more">Открыть <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="know-card" href="rights.html#057">
+        <h3>Права и документы</h3>
+        <p>Форма 057/у, квоты ВМП, инвалидность, льготы — с шаблонами и инструкциями.</p>
+        <span class="more">Открыть <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="know-card" href="community.html">
+        <h3>Сообщество и фонд</h3>
+        <p>Чат «Пересадка», психологи для родителей и адресная помощь фонда.</p>
+        <span class="more">Открыть <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg>
+          </span>
+          <span class="brand-text"><b style="color:#fff">почка</b><small>навигатор для семей</small></span>
+        </a>
+        <p>Информационный портал благотворительного фонда «Настенька» для семей, где растут дети с болезнями почек.</p>
+        <div class="socials">
+          <a href="https://vk.com/fondnastenka" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
+          <a href="https://t.me/bf_nastenka" target="_blank" rel="noopener" title="Telegram">TG</a>
+          <a href="https://ok.ru/fondnastenka" target="_blank" rel="noopener" title="Одноклассники">OK</a>
+          <a href="https://dzen.ru/fondnastenka" target="_blank" rel="noopener" title="Дзен">Дз</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Разделы</h5>
+        <a href="routes.html">Маршруты и помощь</a>
+        <a href="clinics.html">Клиники и центры</a>
+        <a href="rights.html">Права и документы</a>
+        <a href="knowledge.html">База знаний</a>
+        <a href="community.html">Сообщество и фонд</a>
+      </div>
+      <div class="footer-col">
+        <h5>Фонд «Настенька»</h5>
+        <p><a href="tel:+79855501746">+7 985 550-17-46</a></p>
+        <p><a href="tel:+79255854101">+7 925 585-41-01</a></p>
+        <p><a href="mailto:fond@nastenka.ru">fond@nastenka.ru</a></p>
+        <p style="margin-top:8px">115211, г. Москва, Каширское ш., д. 51, к. 2</p>
+        <p>пн–пт, 10:00–18:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Портал — информационный проект фонда «Настенька». Материалы не заменяют консультацию врача. При тревожных симптомах обратитесь к педиатру или вызовите скорую помощь.</p>
+      <p>© 2026 Благотворительный фонд «Настенька» · Это прототип: данные о клиниках и контакты — демонстрационные, перед запуском проверяются с учреждениями.</p>
+      <p><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
