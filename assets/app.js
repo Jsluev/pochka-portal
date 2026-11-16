@@ -45,7 +45,7 @@
     /* ---------- Плавное появление блоков ---------- */
     var revealSel = '.sit-card, .clinic-card, .clinic-mini, .route-card, .story-card, .know-card, ' +
       '.passport, .block, .article, .rights-block, .band, .cta-final, .banner, ' +
-      '.hero-grid, .metro, .q3-grid, .stats-row';
+      '.hero-grid, .metro, .q3-grid, .stats-row, .fact-card, .iceberg, .quiz';
     if (!prefersReduced) {
       var revealEls = $$(revealSel);
       revealEls.forEach(function (el) { el.classList.add('reveal'); });
@@ -179,6 +179,33 @@
         });
       });
       refresh();
+    }
+
+    /* ---------- Мини-тест «проверь себя» ---------- */
+    var quiz = document.querySelector('[data-quiz]');
+    if (quiz) {
+      quiz.addEventListener('click', function (e) {
+        var opt = e.target.closest('.quiz-opt');
+        if (!opt) return;
+        var row = opt.closest('.quiz-q');
+        row.querySelectorAll('.quiz-opt').forEach(function (o) { o.classList.remove('is-on'); });
+        opt.classList.add('is-on');
+      });
+      var quizGo = quiz.querySelector('[data-quiz-go]');
+      if (quizGo) {
+        quizGo.addEventListener('click', function () {
+          var yes = 0, answered = 0;
+          quiz.querySelectorAll('.quiz-q').forEach(function (row) {
+            var on = row.querySelector('.quiz-opt.is-on');
+            if (on) { answered++; if (on.getAttribute('data-yes') === '1') yes++; }
+          });
+          if (answered < quiz.querySelectorAll('.quiz-q').length) return;
+          var showWarn = yes >= 2;
+          quiz.querySelectorAll('.quiz-result').forEach(function (r) {
+            r.classList.toggle('is-visible', r.getAttribute('data-kind') === (showWarn ? 'warn' : 'ok'));
+          });
+        });
+      }
     }
 
     /* ---------- Фильтр каталога клиник ---------- */

@@ -658,7 +658,79 @@ h3 { font-weight: 800; letter-spacing: -.01em; }
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ---------- Статья базы знаний ---------- */
+/* ---------- Светлый портал: айсберг ---------- */
+.iceberg { display: grid; gap: 0; max-width: 860px; margin: 0 auto; }
+.ice-top {
+  background: var(--card); border: 1px solid var(--line); border-bottom: 0;
+  border-radius: 24px 24px 0 0; padding: 30px 34px;
+}
+.ice-bottom {
+  background: linear-gradient(135deg, var(--pine), #1d5248);
+  color: #eaf6f3; border-radius: 0 0 24px 24px; padding: 30px 34px;
+  position: relative; overflow: hidden;
+}
+.ice-bottom::before {
+  content: "…"; position: absolute; right: 10px; bottom: -40px;
+  font-family: var(--serif); font-size: 200px; color: rgba(255, 255, 255, .04);
+  pointer-events: none; line-height: 1;
+}
+.ice-title { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+.ice-title b { font-family: var(--serif); font-size: 22px; font-weight: 700; }
+.ice-bottom .ice-title b { color: #fff; }
+.ice-top p, .ice-bottom p { font-size: 14.5px; color: var(--ink-2); max-width: 700px; }
+.ice-bottom p { color: #cfe6e0; }
+.ice-list { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.ice-bottom .ice-list .chip { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .18); color: #eaf6f3; }
+.ice-bottom .ice-list .chip:hover { border-color: #fff; color: #fff; }
+.funnel-arrow { display: flex; justify-content: center; padding: 0; }
+.funnel-arrow svg { color: var(--teal); display: block; }
+
+/* ---------- Мини-тест «проверь себя» ---------- */
+.quiz {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 30px; box-shadow: var(--shadow-s); max-width: 860px;
+}
+.quiz-q { padding: 14px 0; border-bottom: 1px dashed var(--line); }
+.quiz-q:last-of-type { border-bottom: 0; }
+.quiz-q b { display: block; margin-bottom: 10px; font-size: 15.5px; }
+.quiz-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.quiz-opt {
+  border: 1px solid var(--line); background: var(--paper); border-radius: 999px;
+  padding: 8px 18px; font-size: 14px; font-weight: 700; color: var(--ink-2);
+  cursor: pointer; transition: .15s;
+}
+.quiz-opt:hover { border-color: var(--teal); color: var(--teal-deep); }
+.quiz-opt.is-on { background: var(--teal); border-color: var(--teal); color: #fff; }
+.quiz-result { display: none; margin-top: 18px; border-radius: 14px; padding: 18px 20px; font-size: 14.5px; }
+.quiz-result.is-visible { display: block; }
+.quiz-result.warn { background: var(--peach); border: 1px solid #f0d5c4; color: var(--coral-deep); }
+.quiz-result.ok { background: var(--mint); border: 1px solid var(--mint-2); color: var(--teal-deep); }
+
+/* ---------- Воронка «это про вас?» ---------- */
+.funnel {
+  background: linear-gradient(135deg, var(--pine), #1d5248);
+  border-radius: 18px; padding: 22px 26px; color: #eaf6f3;
+  display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-top: 16px;
+}
+.funnel b { color: #fff; font-family: var(--serif); font-size: 18.5px; font-weight: 700; display: block; margin-bottom: 4px; }
+.funnel p { color: #cfe6e0; font-size: 14px; max-width: 580px; flex: 1; min-width: 260px; }
+
+/* ---------- Баннер зоны навигатора ---------- */
+.zone-banner { background: var(--card); }
+.zone-banner .banner-label { color: var(--teal-deep); }
+
+/* ---------- Карточки-факты (светлый портал) ---------- */
+.fact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.fact-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; position: relative; overflow: hidden;
+}
+.fact-card .fact-num {
+  font-family: var(--serif); font-size: 40px; font-weight: 700; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1.3px var(--teal); display: block; margin-bottom: 12px;
+}
+.fact-card h4 { font-size: 16.5px; margin-bottom: 6px; }
+.fact-card p { font-size: 14px; color: var(--muted); }
 .article {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 30px 32px; margin-top: 20px; scroll-margin-top: 120px;
@@ -666,7 +738,8 @@ h3 { font-weight: 800; letter-spacing: -.01em; }
 .article h3 { font-family: var(--serif); font-size: 25px; font-weight: 700; margin-bottom: 10px; }
 .article > p { color: var(--ink-2); font-size: 15.5px; max-width: 76ch; }
 .article > p + p { margin-top: 10px; }
-.article .sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
+.sub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.article .sub-grid { margin-top: 18px; }
 .sub-card { border: 1px solid var(--line-soft); background: var(--paper); border-radius: 14px; padding: 18px 20px; }
 .sub-card h4 { display: flex; align-items: center; gap: 10px; font-size: 15.5px; margin-bottom: 6px; }
 .sub-card h4::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--coral); flex-shrink: 0; }
@@ -747,6 +820,7 @@ h3 { font-weight: 800; letter-spacing: -.01em; }
   .hero-grid { grid-template-columns: 1fr; gap: 36px; }
   .hero-side { max-width: 420px; }
   .clinics-grid, .know-grid, .stories-grid { grid-template-columns: repeat(2, 1fr); }
+  .fact-cards { grid-template-columns: repeat(2, 1fr); }
   .situations { grid-template-columns: repeat(2, 1fr); }
   .stats-row { grid-template-columns: repeat(2, 1fr); row-gap: 4px; }
   .stat:nth-child(odd) { border-left: 0; padding-left: 0; }
@@ -782,10 +856,10 @@ h3 { font-weight: 800; letter-spacing: -.01em; }
   .hero { padding-top: 36px; }
   .hero h1 { font-size: 32px; }
   .hero .lead { font-size: 16px; }
-  .situations, .clinics-grid, .know-grid, .stories-grid, .routes-grid, .stats-row, .passport-grid, .q3-grid { grid-template-columns: 1fr; }
+  .situations, .clinics-grid, .know-grid, .stories-grid, .routes-grid, .stats-row, .passport-grid, .q3-grid, .fact-cards { grid-template-columns: 1fr; }
   .q3-grid { gap: 22px; }
   .stat + .stat { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 14px; }
-  .layers, .article .sub-grid, .checkgrid, .layers-split { grid-template-columns: 1fr; }
+  .layers, .sub-grid, .checkgrid, .layers-split { grid-template-columns: 1fr; }
   .layer-life { transform: none; }
   .section { padding: 46px 0; }
   .band, .cta-final { padding: 30px 22px; }
