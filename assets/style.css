@@ -174,7 +174,13 @@ h3 { font-size: 18px; line-height: 1.35; }
 .hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
 .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: start; }
 .hero h1 { font-size: clamp(36px, 4.4vw, 54px); line-height: 1.1; margin: 10px 0 0; max-width: 640px; }
-.hero .mark { color: var(--accent-deep); background: #efe3cf; padding: 0 .05em; }
+.hero .mark {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--marker);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .14em;
+}
 .hero .lead { font-size: 17.5px; color: var(--ink-2); max-width: 56ch; margin-top: 18px; }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 
