@@ -8,14 +8,14 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg></span>
+      <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z"/></svg></span>
       <span class="brand-text"><b>почка</b><small>проект фонда «Настенька»</small></span>
     </a>
     <nav class="main-nav" id="mainNav">
@@ -36,7 +36,7 @@
   <div class="container">
     <span class="eyebrow">Сервисы и тесты</span>
     <h1>Проверить и понять без лишних слов</h1>
-    <p class="sub">Инструменты не ставят диагноз. Они помогают подготовиться к разговору с врачом и задать правильные вопросы.</p>
+    <p class="sub">Они не ставят диагноз. Они помогают подготовиться к разговору с врачом.</p>
   </div>
 </section>
 
@@ -44,8 +44,8 @@
   <div class="container">
     <div class="calc-card" id="skf">
       <span class="eyebrow">01 · Калькулятор</span>
-      <h2>Скорость клубочковой фильтрации</h2>
-      <p class="lead-sub">Показывает, насколько хорошо почки справляются с работой. Введите результат анализа крови.</p>
+      <h2>Что показывает СКФ</h2>
+      <p class="lead-sub">Введите креатинин крови — расчёт будет ориентировочным.</p>
       <div class="calc-tabs" data-calc-tabs>
         <button type="button" class="is-active" data-mode="adult">Взрослый</button>
         <button type="button" data-mode="child">Ребёнок</button>
@@ -77,7 +77,7 @@
     <div class="calc-card" id="test">
       <span class="eyebrow">02 · Тест</span>
       <h2>В зоне ли вы риска?</h2>
-      <p class="lead-sub">Семь вопросов. В конце — короткий список анализов, которые стоит обсудить с врачом.</p>
+      <p class="lead-sub">Семь вопросов и короткий список анализов для разговора с врачом.</p>
       <div data-riskquiz>
         <div class="quiz-q"><b>1. Давление иногда выше 130/80?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
         <div class="quiz-q"><b>2. У вас диабет или повышенный сахар?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
@@ -88,11 +88,11 @@
         <div class="quiz-q"><b>7. За год сдавали анализы крови и мочи?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="0">Да</button><button class="quiz-opt" type="button" data-risk="1">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не помню</button></div></div>
         <button class="btn btn-primary mt-16" type="button" data-riskgo>Показать результат</button>
         <p class="quiz-hint" data-riskhint>Ответьте на все вопросы — результат появится совсем рядом.</p>
-        <div class="quiz-result warn" data-riskresult="high"><b>Стоит уделить почкам внимание.</b> Обсудите с терапевтом общий анализ мочи, креатинин с СКФ и, при диабете, микроальбуминурию. Это быстрые анализы, а не повод для тревоги.</div>
-        <div class="quiz-result mid" data-riskresult="mid"><b>Есть пара поводов уточнить.</b> Обычные анализы мочи и крови раз в год плюс контроль давления — хороший повод для спокойного разговора с терапевтом.</div>
-        <div class="quiz-result ok" data-riskresult="low"><b>Поводов для беспокойства нет.</b> Чтобы так оставалось, сдавайте мочу и креатинин раз в год — почки редко говорят о себе сами.</div>
+        <div class="quiz-result warn" data-riskresult="high"><b>Стоит уделить почкам внимание.</b> Обсудите с терапевтом мочу, креатинин с СКФ и, при диабете, микроальбуминурию.</div>
+        <div class="quiz-result mid" data-riskresult="mid"><b>Есть повод уточнить.</b> Анализы мочи и крови раз в год плюс контроль давления.</div>
+        <div class="quiz-result ok" data-riskresult="low"><b>Поводов для беспокойства нет.</b> Сдавайте мочу и креатинин раз в год.</div>
       </div>
-      <p class="source-note">Тест не ставит диагноз. Если что-то беспокоит, просто сходите на приём.</p>
+      <p class="source-note">Тест не ставит диагноз. Если что-то беспокоит, сходите на приём.</p>
     </div>
   </div>
 </section>
@@ -102,7 +102,7 @@
     <div class="calc-card" id="products" style="max-width:none">
       <span class="eyebrow">03 · Справочник</span>
       <h2>Продукты при ХБП</h2>
-      <p class="lead-sub">Показатели на 100 г продукта и короткая подсказка по готовке. Демо-таблица для понимания формата.</p>
+      <p class="lead-sub">Показатели на 100 г и короткая подсказка по готовке. Демо-таблица.</p>
       <div class="product-search"><input id="productSearch" type="search" placeholder="Например: банан, картофель, творог…" aria-label="Поиск продукта"><span class="tag tag-outline">12 продуктов в демо</span></div>
       <div class="product-table" id="productTable">
         <div class="product-row head"><span>Продукт</span><span>Белок</span><span>Калий</span><span>Фосфор</span><span>Натрий</span><span>Подсказка</span></div>
@@ -120,7 +120,7 @@
         <div class="product-row" data-level="ok"><b>Груша</b><span class="light">0,4 г</span><span class="light">116 мг</span><span class="light">12 мг</span><span class="light">1 мг</span><span class="tip">Обычно подходит без ограничений.</span></div>
       </div>
       <div class="product-empty" id="productEmpty">Ничего не нашлось — попробуйте другое название.</div>
-      <p class="source-note">Цифры ориентировочные и нужны только для демонстрации интерфейса. При ХБП ограничения зависят от стадии, анализов и возраста — их определяет врач.</p>
+      <p class="source-note">Цифры ориентировочные. При ХБП ограничения зависят от стадии, анализов и возраста — их определяет врач.</p>
     </div>
   </div>
 </section>
@@ -130,11 +130,11 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="index.html">
-          <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg></span>
-          <span class="brand-text"><b style="color:#fff">почка</b><small>проект фонда «Настенька»</small></span>
+          <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z"/></svg></span>
+          <span class="brand-text"><b>почка</b><small>проект фонда «Настенька»</small></span>
         </a>
         <p>Просветительский портал фонда «Настенька». Объясняем почки простыми словами и помогаем семьям разобраться с лечением.</p>
-        <span class="footer-hand">сделано с заботой · проверено врачами</span>
+        <span class="footer-hand">Проверено врачами · опыт семей фонда</span>
         <div class="socials">
           <a href="https://vk.com/fondnastenka" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
           <a href="https://t.me/bf_nastenka" target="_blank" rel="noopener" title="Telegram">TG</a>
