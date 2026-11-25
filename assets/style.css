@@ -721,12 +721,15 @@ h3 { font-size: 18px; line-height: 1.35; }
 @media (max-width: 940px) {
   .metro-track { overflow-x: auto; justify-content: flex-start; padding-bottom: 6px; }
   .station { min-width: 100px; }
-  .post-layout { grid-template-columns: 1fr; }
-  .post-aside { position: static; grid-template-columns: repeat(2, 1fr); }
+  .post-layout { grid-template-columns: minmax(0, 1fr); }
+  .post-aside { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 680px) {
   h1 { font-size: 32px; }
   h2 { font-size: 26px; }
+  .header-inner { gap: 10px; }
+  .header-actions { gap: 6px; margin-left: auto; }
+  .brand-text small { display: none; }
   .hero { padding-top: 38px; }
   .hero h1 { font-size: 32px; }
   .hero .lead { font-size: 16px; }
