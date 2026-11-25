@@ -170,10 +170,11 @@ h3 { font-size: 18px; line-height: 1.35; }
 .page-head .sub { max-width: 68ch; color: var(--ink-2); font-size: 17px; }
 
 /* ---------- Главный экран ---------- */
-.hero { position: relative; padding: 56px 0 20px; }
+.hero { position: relative; padding: 68px 0 24px; }
+.hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
 .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: start; }
 .hero h1 { font-size: clamp(36px, 4.4vw, 54px); line-height: 1.1; margin: 10px 0 0; max-width: 640px; }
-.hero .mark { box-shadow: inset 0 -.38em 0 #f0e2ca; }
+.hero .mark { color: var(--accent-deep); background: #efe3cf; padding: 0 .05em; }
 .hero .lead { font-size: 17.5px; color: var(--ink-2); max-width: 56ch; margin-top: 18px; }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 
@@ -189,21 +190,53 @@ h3 { font-size: 18px; line-height: 1.35; }
 .popular { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 12px; font-size: 12.5px; }
 .popular .popular-label { color: var(--muted); font-weight: 700; margin-right: 2px; }
 
-/* Маскот: тихая заметка, без наклеек и теней */
+/* Заметка у героя: одна рамка, одна линия, никаких теней */
 .hero-side { position: relative; }
-.mascot-card {
-  background: transparent; border: 0; border-left: 2px solid var(--accent-soft);
-  border-radius: 0; padding: 4px 0 4px 20px; text-align: left;
+.field-note {
+  position: relative; margin: 0; padding: 24px 24px 22px;
+  background: var(--surface); border: 1px solid var(--line);
 }
-.mascot-card::before { content: none; }
-.mascot-svg { width: 84px; height: auto; margin: 0 0 12px; }
-.mascot-bubble {
-  background: transparent; border-radius: 0; padding: 0;
-  font-family: var(--serif); font-size: 16px; color: var(--ink-2);
-  position: static; margin-top: 0; text-align: left; max-width: 34ch;
+.field-note::before { content: ""; position: absolute; top: -1px; left: -1px; width: 72px; height: 3px; background: var(--accent); }
+.note-label {
+  display: block; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
 }
-.mascot-bubble::after { content: none; }
-.mascot-caption { display: block; margin-top: 10px; font-size: 11px; color: var(--muted); letter-spacing: .03em; }
+.mascot-svg { width: 96px; height: auto; margin: 18px 0 14px; color: var(--accent); }
+.field-note blockquote {
+  font-family: var(--serif); font-size: 17px; line-height: 1.5;
+  color: var(--ink); max-width: 34ch;
+}
+.field-note figcaption { margin-top: 16px; font-size: 12px; }
+.field-note figcaption a { color: var(--accent-deep); }
+
+/* Четыре плашки с цифрами */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
+  margin-top: 46px; border: 1px solid var(--line); background: var(--line);
+}
+.stat-tile {
+  min-height: 174px; padding: 22px 20px 18px;
+  display: flex; flex-direction: column; background: var(--paper);
+}
+.stat-tile--lead { background: var(--accent); color: #fff; }
+.stat-kicker {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.stat-tile--lead .stat-kicker { color: rgba(255,255,255,.75); }
+.stat-tile b {
+  font-family: var(--serif); font-size: clamp(29px, 3vw, 42px); font-weight: 600;
+  line-height: 1.05; letter-spacing: -.03em; color: var(--accent-deep);
+  margin: 14px 0 10px;
+}
+.stat-tile--lead b { color: #fff; }
+.stat-tile p { font-size: 13px; line-height: 1.45; color: var(--ink-2); }
+.stat-tile--lead p { color: rgba(255,255,255,.9); }
+.stat-source {
+  margin-top: auto; padding-top: 12px; font-size: 10.5px; color: var(--muted);
+  border-top: 1px solid var(--line-soft);
+}
+.stat-tile--lead .stat-source { color: rgba(255,255,255,.75); border-top-color: rgba(255,255,255,.25); }
 
 /* Спокойная фактура вместо «метро с пульсацией» */
 .metro {
@@ -657,6 +690,7 @@ h3 { font-size: 18px; line-height: 1.35; }
 @media (max-width: 1080px) {
   .hero-grid { grid-template-columns: 1fr; gap: 34px; }
   .hero-side { max-width: 520px; }
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .clinics-grid, .know-grid, .stories-grid, .fact-cards, .situations { grid-template-columns: repeat(2, 1fr); }
   .passport-grid { grid-template-columns: repeat(2, 1fr); }
   .route-layout { grid-template-columns: 1fr; }
@@ -690,6 +724,9 @@ h3 { font-size: 18px; line-height: 1.35; }
   .hero { padding-top: 38px; }
   .hero h1 { font-size: 32px; }
   .hero .lead { font-size: 16px; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .stat-tile { min-height: 0; }
+  .field-note { padding: 20px 18px; }
   .situations, .clinics-grid, .know-grid, .stories-grid, .routes-grid,
   .passport-grid, .q3-grid, .fact-cards, .trust-grid,
   .layers, .sub-grid, .checkgrid, .layers-split, .field-grid { grid-template-columns: 1fr; }
