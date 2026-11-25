@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Почка — портал о здоровье почек | Фонд «Настенька»</title>
-<meta name="description" content="Просто и по-человечески о здоровье почек: как они работают, что им вредит и как заметить проблему пораньше. Проект фонда «Настенька».">
+<meta name="description" content="Понятно и по-человечески о здоровье почек: анализы, привычки, факторы риска. А для семей с детьми с ХБП — маршруты лечения, клиники и поддержка фонда «Настенька».">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,18 +19,17 @@
       <span class="brand-mark">
         <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg>
       </span>
-      <span class="brand-text"><b>почка</b><small>портал о здоровье почек</small></span>
+      <span class="brand-text"><b>почка</b><small>проект фонда «Настенька»</small></span>
     </a>
     <nav class="main-nav" id="mainNav">
-      <a href="#about">О почках</a>
-      <a href="#quiz">Проверь себя</a>
-      <a href="#treatment">Диализ и пересадка</a>
-      <a href="#stories">Истории</a>
-      <a href="#help">Помочь</a>
+      <a href="health.html">Здоровье</a>
+      <a href="risk.html">Группы риска</a>
+      <a href="parents.html">Детям с ХБП</a>
+      <a href="services.html">Сервисы и тесты</a>
+      <a href="about.html">О проекте</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-ghost btn-sm" href="https://nastenka.ru/" target="_blank" rel="noopener">Помочь фонду</a>
-      <a class="btn btn-accent btn-sm" href="parents.html">Родителям</a>
+      <a class="btn btn-ghost btn-sm" href="search.html">Найти</a>
       <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -41,20 +40,21 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Портал о здоровье почек · проект фонда «Настенька»</span>
+        <span class="eyebrow">Просветительский проект фонда «Настенька»</span>
         <h1>Почки почти никогда <span class="mark">не болят</span>. Даже когда им плохо.</h1>
-        <p class="lead">Рассказываем, как работают почки, что им вредит и как заметить проблему пораньше. Просто, по-человечески и без страшилок.</p>
+        <p class="lead">Поэтому про них легко забыть. Здесь можно спокойно разобраться, как они работают, какие анализы сдать и что делать, если у ребёнка диагноз.</p>
 
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:26px">
-          <a class="btn btn-primary" href="#quiz">Пройти короткий тест
+          <a class="btn btn-primary" href="services.html#test">Проверить риски
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-ghost" href="#about">Как работают почки</a>
+          <a class="btn btn-ghost" href="#paths">Что здесь есть</a>
         </div>
 
         <div class="hero-badges">
-          <span class="tag">Проверено врачами-нефрологами</span>
-          <span class="tag">Фонд «Настенька» · 20+ лет</span>
+          <span class="tag">Материалы проверяют врачи</span>
+          <span class="tag">Опыт семей фонда</span>
+          <span class="tag tag-outline">Без страшилок и рекламы анализов</span>
         </div>
       </div>
 
@@ -71,242 +71,213 @@
             <circle cx="46" cy="73" r="4.6" fill="#F2A98F" opacity=".6"/>
             <circle cx="96" cy="73" r="4.6" fill="#F2A98F" opacity=".6"/>
           </svg>
-          <div class="mascot-bubble">Я — Почка. Молчу, даже когда мне плохо. Поэтому проверяйте меня анализами — хотя бы раз в год.</div>
+          <div class="mascot-bubble">Я — Почка. Молчу, даже когда мне плохо. Поэтому меня проверяют анализами — раз в год это несложно.</div>
           <span class="mascot-caption">почка-интроверт</span>
         </div>
       </div>
     </div>
 
-    <!-- Цифры -->
     <div class="stats-row">
-      <div class="stat"><b>≈ 674 млн</b><span>людей в мире живут с хронической болезнью почек (данные ВОЗ)</span></div>
-      <div class="stat"><b>70%</b><span>проблем с почками у детей врачи находят случайно — по обычному анализу мочи</span></div>
-      <div class="stat"><b>5 стадий</b><span>у хронической болезни почек. Ранние стадии можно замедлить, если заметить вовремя</span></div>
-      <div class="stat"><b>1 анализ</b><span>мочи и крови достаточно, чтобы увидеть первые изменения</span></div>
+      <div class="stat"><b>≈ 674 млн</b><span>людей в мире живут с хронической болезнью почек — данные ВОЗ</span></div>
+      <div class="stat"><b>70%</b><span>проблем с почками у детей находят случайно, по обычному анализу мочи</span></div>
+      <div class="stat"><b>2 анализа</b><span>мочи и крови достаточно, чтобы увидеть первые изменения</span></div>
+      <div class="stat"><b>20+ лет</b><span>фонд «Настенька» помогает детям с болезнями почек и их семьям</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= О ПОЧКАХ ================= -->
-<section class="section" id="about">
+<!-- ================= ТРИ ВХОДА ================= -->
+<section class="section" id="paths">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">О почках</span>
-        <h2>Как работают почки — и от чего им хуже</h2>
-        <p class="lead-sub">Три факта и два коротких списка. Этого хватит, чтобы относиться к почкам бережнее.</p>
-      </div>
-    </div>
-    <div class="fact-cards">
-      <div class="fact-card">
-        <span class="fact-num">180 л</span>
-        <h4>Незаметный фильтр</h4>
-        <p>За сутки почки пропускают через себя всю кровь около 300 раз — это примерно 180 литров. Почти всё возвращается обратно, наружу уходит только лишнее: полтора литра в день.</p>
-      </div>
-      <div class="fact-card">
-        <span class="fact-num">тихо</span>
-        <h4>Почему проблемы копятся незаметно</h4>
-        <p>В почках нет болевых окончаний, как в горле или животе. Болезнь может развиваться годами без единого болевого сигнала и проявиться, когда изменения уже серьёзные.</p>
-      </div>
-      <div class="fact-card">
-        <span class="fact-num">сила</span>
-        <h4>Работа, которую не видно</h4>
-        <p>Почки держат баланс воды и солей, помогают контролировать давление и заботятся о костях. Мы замечаем их работу, только когда что-то ломается.</p>
+        <span class="eyebrow">С чего начать</span>
+        <h2>Здесь есть что почитать и что делать</h2>
+        <p class="lead-sub">Выберите, что ближе сейчас. Ничего заполнять не нужно — можно просто читать.</p>
       </div>
     </div>
 
-    <div class="sub-grid mt-24">
-      <div class="article" style="margin-top:0;padding:26px 28px">
-        <h3>Пять привычек здоровых почек</h3>
-        <ul class="checklist">
-          <li>Пить воду в течение дня: полтора литра — хороший ориентир</li>
-          <li>Не досаливать еду: чайной ложки соли в день достаточно</li>
-          <li>Принимать обезболивающие и антибиотики только по назначению врача</li>
-          <li>Следить за давлением и сахаром: они влияют на почки сильнее, чем кажется</li>
-          <li>Раз в год сдавать анализы крови и мочи: это быстро и бесплатно</li>
-        </ul>
-      </div>
-      <div class="article" style="margin-top:0;padding:26px 28px">
-        <h3>От чего почкам становится хуже</h3>
-        <ul class="checklist">
-          <li>Много соли, сахара и еды на бегу</li>
-          <li>Мало воды в течение дня</li>
-          <li>Лекарства и БАДы, которые никто не назначал</li>
-          <li>Давление и диабет, о которых человек не знает годами</li>
-          <li>Инфекции, перенесённые на ногах</li>
-        </ul>
-      </div>
+    <div class="paths-grid">
+      <a class="path-card" href="health.html">
+        <span class="path-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 0-7 3-7 7 0 3 1.8 4.8 3.4 6.2-1.4.9-2.4 2.2-2.4 3.8 0 1.6 1 2.6 2.4 2.6 2.2 0 3.4-1.6 3.6-3.8 3.2 2 7.6 1.4 9.6-.6 2.4-2.4 2.4-7-1.6-10.6C17.6 4.6 15 3 12 3z"/><path d="M9.5 10.5h.01M14.5 10.5h.01M10 14c1.3 1.1 2.7 1.1 4 0"/></svg></span>
+        <span class="path-kicker">Для всех</span>
+        <h3>Просто о здоровье почек</h3>
+        <p>Как устроены почки, что означают анализы и какие привычки действительно помогают.</p>
+        <span class="path-list">
+          <span>расшифровка анализов без латыни</span>
+          <span>вода, соль и аптечка</span>
+          <span>отёки: когда стоит провериться</span>
+        </span>
+        <span class="path-go">Открыть раздел →</span>
+      </a>
+
+      <a class="path-card" href="risk.html">
+        <span class="path-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span>
+        <span class="path-kicker">Если есть факторы риска</span>
+        <h3>Давление, диабет, наследственность</h3>
+        <p>Почки страдают от этих вещей тихо. Здесь — что контролировать и о чём спросить врача.</p>
+        <span class="path-list">
+          <span>почему давление важнее, чем кажется</span>
+          <span>два анализа раз в год при диабете</span>
+          <span>как беречь почки при приёме лекарств</span>
+        </span>
+        <span class="path-go">Открыть раздел →</span>
+      </a>
+
+      <a class="path-card is-core" href="parents.html">
+        <span class="path-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/></svg></span>
+        <span class="path-kicker">Для семей с детьми</span>
+        <h3>Ребёнок с ХБП 3–5 стадии</h3>
+        <p>Отдельный навигатор, где собраны маршруты лечения, клиники, документы и честный опыт других семей.</p>
+        <span class="path-list">
+          <span>маршрут от диагноза до госпитализации</span>
+          <span>каталог профильных центров</span>
+          <span>права, льготы и поддержка фонда</span>
+        </span>
+        <span class="path-go">Открыть навигатор →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ================= ПРОВЕРЬ СЕБЯ ================= -->
-<section class="section section-alt" id="quiz">
+<!-- ================= СЕРВИСЫ ================= -->
+<section class="section section-alt" id="tools">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Проверь себя</span>
-        <h2>Пять вопросов о том, что вы замечаете за собой</h2>
-        <p class="lead-sub">Это не диагноз — просто подсказка, стоит ли показаться врачу.</p>
+        <span class="eyebrow">Сервисы</span>
+        <h2>Быстрые проверки и понятные инструменты</h2>
+        <p class="lead-sub">Не вместо врача, а чтобы подготовиться к разговору с ним.</p>
       </div>
     </div>
-
-    <div class="sub-grid">
-      <div class="quiz" data-quiz style="max-width:none">
-        <div class="quiz-q">
-          <b>1. По утрам под глазами бывают отёки, а к вечеру на ногах остаются следы от резинок?</b>
-          <div class="quiz-options">
-            <button class="quiz-opt" data-yes="1" type="button">Да</button>
-            <button class="quiz-opt" data-yes="0" type="button">Нет</button>
-          </div>
-        </div>
-        <div class="quiz-q">
-          <b>2. Замечали, что моча стала мутной, тёмной или с сильным запахом?</b>
-          <div class="quiz-options">
-            <button class="quiz-opt" data-yes="1" type="button">Да</button>
-            <button class="quiz-opt" data-yes="0" type="button">Нет</button>
-          </div>
-        </div>
-        <div class="quiz-q">
-          <b>3. В последнее время устаёте сильнее обычного, без видимой причины?</b>
-          <div class="quiz-options">
-            <button class="quiz-opt" data-yes="1" type="button">Да</button>
-            <button class="quiz-opt" data-yes="0" type="button">Нет</button>
-          </div>
-        </div>
-        <div class="quiz-q">
-          <b>4. Давление иногда поднимается или часто болит голова?</b>
-          <div class="quiz-options">
-            <button class="quiz-opt" data-yes="1" type="button">Да</button>
-            <button class="quiz-opt" data-yes="0" type="button">Нет</button>
-          </div>
-        </div>
-        <div class="quiz-q">
-          <b>5. В день выпиваете меньше полутора литров воды?</b>
-          <div class="quiz-options">
-            <button class="quiz-opt" data-yes="1" type="button">Да</button>
-            <button class="quiz-opt" data-yes="0" type="button">Нет</button>
-          </div>
-        </div>
-
-        <button class="btn btn-primary mt-16" data-quiz-go type="button">Показать результат</button>
-
-        <div class="quiz-result warn" data-kind="warn">
-          <b>Стоит показаться врачу.</b> Часть ответов совпала с тем, на что врачи советуют обращать внимание. Запишитесь к терапевту и сдайте анализы крови и мочи: это быстро, бесплатно и снимет все сомнения.
-        </div>
-        <div class="quiz-result ok" data-kind="ok">
-          <b>Поводов для тревоги нет.</b> Чтобы так было и дальше, сдавайте анализы крови и мочи раз в год: почки редко говорят о себе сами.
-        </div>
-
-        <p class="small muted mt-16">Тест не ставит диагноз и не заменяет врача. Если что-то беспокоит — просто сходите на приём.</p>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <span class="tool-num">01</span>
+        <h3>Калькулятор СКФ</h3>
+        <p>По креатинину покажет, насколько хорошо почки справляются с работой. Для взрослых и детей.</p>
+        <a class="btn btn-primary btn-sm" href="services.html#skf">Рассчитать</a>
       </div>
-
-      <div class="article" style="margin-top:0;padding:26px 28px">
-        <h3>На что стоит обратить внимание</h3>
-        <p>Почки не болят, как горло. Они подают другие знаки, которые легко списать на усталость или погоду.</p>
-        <ul class="checklist mt-16">
-          <li>Отёки под глазами по утрам, следы от резинок на ногах к вечеру</li>
-          <li>Мутная или тёмная моча, сильный запах</li>
-          <li>Усталость и слабость, которым нет объяснения</li>
-          <li>Повышенное давление в молодом возрасте</li>
-          <li>Частые походы в туалет по ночам</li>
-        </ul>
-        <div class="note mt-16">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
-          <span>Заметили у себя что-то из этого? Покажитесь терапевту и сдайте анализы. Полчаса в поликлинике снимают вопросы, на которые тело отвечать не торопится.</span>
-        </div>
+      <div class="tool-card">
+        <span class="tool-num">02</span>
+        <h3>Тест «В зоне ли вы риска?»</h3>
+        <p>Семь вопросов про давление, сахар, лекарства и привычки. В конце — список анализов, которые стоит обсудить с врачом.</p>
+        <a class="btn btn-primary btn-sm" href="services.html#test">Пройти тест</a>
+      </div>
+      <div class="tool-card">
+        <span class="tool-num">03</span>
+        <h3>Продукты при ХБП</h3>
+        <p>Белок, калий, фосфор и соль в обычных продуктах — с подсказками, как готовить безопаснее.</p>
+        <a class="btn btn-primary btn-sm" href="services.html#products">Открыть справочник</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= ДИАЛИЗ И ПЕРЕСАДКА ================= -->
-<section class="section" id="treatment">
+<!-- ================= ПОПУЛЯРНОЕ ================= -->
+<section class="section" id="popular">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Простым языком</span>
-        <h2>Диализ и пересадка</h2>
-        <p class="lead-sub">Про эти вещи говорят редко и чаще всего со страхом. На самом деле и то и другое — способы жить дальше, когда свои почки не справляются.</p>
+        <span class="eyebrow">Читают чаще всего</span>
+        <h2>Ответы на обычные вопросы</h2>
+        <p class="lead-sub">Коротко, без сложных слов и без советов «просто пей больше воды».</p>
       </div>
+      <a class="btn btn-ghost btn-sm" href="health.html">Все материалы</a>
     </div>
-    <div class="sub-grid">
-      <div class="article" style="margin-top:0;padding:26px 28px">
-        <h3>Диализ</h3>
-        <p>Когда почки перестают справляться, их работу берёт на себя диализ. Процедуру делают в клинике несколько раз в неделю, а некоторые виды можно проводить дома. Люди на диализе работают, учатся и путешествуют — диализ даёт время дождаться пересадки.</p>
-        <div class="funnel">
-          <div style="flex:1;min-width:220px">
-            <b>У вашего ребёнка болезнь почек?</b>
-            <p>Для родителей у нас есть отдельный раздел: какие бывают виды диализа у детей, где его проводят и как устроена жизнь семьи в этот период.</p>
-          </div>
-          <a class="btn btn-white btn-sm" href="knowledge.html#dializ">Раздел для родителей</a>
+    <div class="post-grid">
+      <a class="post-card" href="article-analizy.html">
+        <span class="post-type">Анализы</span>
+        <h3>Что смотреть в общем анализе мочи и креатинине</h3>
+        <p>Разбираем буквы и цифры по порядку: что считается нормой, а что — повод показать результаты врачу.</p>
+        <span class="post-meta">5 минут чтения · проверено врачом</span>
+        <span class="post-more">Читать →</span>
+      </a>
+      <a class="post-card" href="article-voda.html">
+        <span class="post-type">Привычки</span>
+        <h3>Сколько воды пить на самом деле</h3>
+        <p>Миф про два литра, жажду, спорт и жаркую погоду. Без жёстких правил, с оглядкой на почки и сердце.</p>
+        <span class="post-meta">4 минуты чтения · проверено врачом</span>
+        <span class="post-more">Читать →</span>
+      </a>
+      <a class="post-card" href="article-lekarstva.html">
+        <span class="post-type">Безопасность</span>
+        <h3>Аптечка, которая не вредит почкам</h3>
+        <p>Какие обезболивающие и травы стоит перед долгим приёмом обсудить с врачом, а какие обычно безопасны.</p>
+        <span class="post-meta">6 минут чтения · проверено врачом</span>
+        <span class="post-more">Читать →</span>
+      </a>
+      <a class="post-card" href="article-oteki.html">
+        <span class="post-type">Симптомы</span>
+        <h3>Отёки по утрам: когда дело в почках</h3>
+        <p>Солёный ужин, недосып, сердце и почки — как отличить одно от другого и когда идти на приём.</p>
+        <span class="post-meta">5 минут чтения · проверено врачом</span>
+        <span class="post-more">Читать →</span>
+      </a>
+      <a class="post-card" href="article-mify.html">
+        <span class="post-type is-expert">Мифы</span>
+        <h3>«Чистка почек» и БАДы: что действительно работает</h3>
+        <p>Спокойный разбор популярных обещаний и объяснение, почему почки не нужно чистить специальными сборами.</p>
+        <span class="post-meta">7 минут чтения · проверено врачом</span>
+        <span class="post-more">Читать →</span>
+      </a>
+      <a class="post-card" href="article-davlenie.html">
+        <span class="post-type">Группы риска</span>
+        <h3>Почему высокое давление бьёт по почкам</h3>
+        <p>Связь, которую не чувствуешь годами, и два простых анализа, которые помогают её заметить.</p>
+        <span class="post-meta">5 минут чтения · проверено врачом</span>
+        <span class="post-more">Читать →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПАРАЛЛЕЛЬНЫЙ ХАБ ================= -->
+<section class="section-tight">
+  <div class="container">
+    <div class="band">
+      <div>
+        <span class="eyebrow" style="color:#7fd0c6">Отдельный раздел для семей</span>
+        <h2>Когда у ребёнка ХБП, проще идти по шагам</h2>
+        <p>Диагноз, обследования, направление в другой город, диализ или пересадка — у каждого этапа свои задачи. Мы собрали их в маршруты и добавили каталог центров, документы и опыт родителей.</p>
+        <div class="band-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span>Куда обращаться — каталог профильных учреждений</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span>Как попасть на лечение — пошаговые маршруты</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span>Что собрать — документы, льготы и чек-листы</span></li>
+        </div>
+        <div class="band-actions">
+          <a class="btn btn-white" href="parents.html">Открыть навигатор для семей</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="clinics.html">Найти центр</a>
         </div>
       </div>
-      <div class="article" style="margin-top:0;padding:26px 28px">
-        <h3>Пересадка</h3>
-        <p>Когда почки уже не могут работать, помогает пересадка. Донором может стать близкий человек; если такой возможности нет, пациента ставят в лист ожидания. После операции люди возвращаются к учёбе, работе и спорту.</p>
-        <div class="funnel">
-          <div style="flex:1;min-width:220px">
-            <b>У вашего ребёнка болезнь почек?</b>
-            <p>В разделе для родителей — пошагово: обследования, выбор центра, документы и жизнь после операции.</p>
-          </div>
-          <a class="btn btn-white btn-sm" href="knowledge.html#transplant">Раздел для родителей</a>
-        </div>
+      <div class="band-stats">
+        <div class="bstat"><b>5 000+</b><span>семей в сообществе «Пересадка», где делятся опытом</span></div>
+        <div class="bstat"><b>1 из 5</b><span>вопросов родителей — не про болезнь, а про организацию помощи</span></div>
+        <div class="bstat"><b>163</b><span>пересадки почки детям в России в 2025 году</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= ИСТОРИИ ================= -->
-<section class="section section-alt" id="stories">
+<!-- ================= ДОВЕРИЕ ================= -->
+<section class="section" id="trust">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Истории</span>
-        <h2>Три истории о жизни с болезнью почек</h2>
-        <p class="lead-sub">Диализ, ожидание, пересадка — и жизнь, которая продолжается.</p>
+        <span class="eyebrow">Почему можно доверять</span>
+        <h2>За порталом — фонд и люди, которые каждый день с этим работают</h2>
       </div>
     </div>
-    <div class="stories-grid">
-      <div class="story-card">
-        <div class="story-photo ph-teal">Л</div>
-        <div class="story-body">
-          <h3>Лёня, 11 лет, Курск</h3>
-          <p>Родился с одной почкой и пороком сердца. Два года ожидания: каждый день по 14 часов на диализе. В феврале — долгожданная пересадка. Сейчас Лёня дома и снова мечтает о футболе.</p>
-          <div class="story-tags"><span class="tag">Пересадка</span><span class="tag-outline">2 года на диализе</span></div>
-        </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <p>«Настенька» больше двадцати лет помогает детям с тяжёлыми болезнями почек. Мы не продаём анализы и не ведём приём — поэтому можем спокойно объяснять, что действительно важно, а что нет.</p>
+        <p>Материалы проверяют детские нефрологи, терапевты и диетологи. Там, где речь о документах и льготах, — юристы и сами родители, которые уже прошли этот путь.</p>
+        <a class="btn btn-ghost btn-sm mt-16" href="about.html">О проекте и экспертах</a>
       </div>
-      <div class="story-card">
-        <div class="story-photo ph-coral">Д</div>
-        <div class="story-body">
-          <h3>Даша, 7 лет, Тверь</h3>
-          <p>В полтора года — рак почки, операция, два года диализа. Четыре года живёт с почкой, пересаженной от бабушки. Ходит в школу, поёт в хоре и мечтает о большой сцене.</p>
-          <div class="story-tags"><span class="tag">Родственная пересадка</span></div>
-        </div>
-      </div>
-      <div class="story-card">
-        <div class="story-photo ph-blue">К</div>
-        <div class="story-body">
-          <h3>Кирилл, 18 лет, Тара</h3>
-          <p>Болезнь проявилась после ангины в два года. Осенью 2022-го почки отказали: переезд в Москву, гемодиализ, два года ожидания. Почти год назад — успешная пересадка. Кирилл дома, среди книг и близких.</p>
-          <div class="story-tags"><span class="tag">Переезд</span><span class="tag-outline">Гемодиализ</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ПОМОЧЬ ================= -->
-<section class="section-tight" id="help">
-  <div class="container">
-    <div class="cta-final">
-      <div>
-        <h2>Помогите тем, кто прямо сейчас ждёт пересадку</h2>
-        <p>Фонд «Настенька» больше 20 лет помогает детям с болезнями почек. Мы снимаем квартиры в Москве семьям, приехавшим на лечение, оплачиваем анализы и лекарства и остаёмся рядом после операции. Любая сумма — часть чьей-то пересадки.</p>
-      </div>
-      <div class="cta-actions">
-        <a class="btn btn-white" href="https://nastenka.ru/" target="_blank" rel="noopener">Помочь фонду «Настенька»</a>
-        <a class="btn btn-accent" href="parents.html">Я родитель — мне нужна помощь</a>
+      <div class="expert-grid">
+        <div class="expert"><b>Детский нефролог</b><span>проверяет материалы о болезни и лечении</span></div>
+        <div class="expert"><b>Терапевт</b><span>объясняет анализы и факторы риска у взрослых</span></div>
+        <div class="expert"><b>Диетолог</b><span>помогает с питанием при ограничениях</span></div>
+        <div class="expert"><b>Родительский совет</b><span>добавляет то, чему не научат в справочнике</span></div>
       </div>
     </div>
   </div>
@@ -321,9 +292,9 @@
           <span class="brand-mark">
             <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z" fill="#fff"/></svg>
           </span>
-          <span class="brand-text"><b style="color:#fff">почка</b><small>портал о здоровье почек</small></span>
+          <span class="brand-text"><b style="color:#fff">почка</b><small>проект фонда «Настенька»</small></span>
         </a>
-        <p>Просветительский портал благотворительного фонда «Настенька». Рассказываем о почках просто.</p>
+        <p>Просветительский портал благотворительного фонда «Настенька». Рассказываем о почках просто и без лишнего шума.</p>
         <span class="footer-hand">сделано с заботой · проверено врачами и семьями</span>
         <div class="socials">
           <a href="https://vk.com/fondnastenka" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
@@ -334,11 +305,12 @@
       </div>
       <div class="footer-col">
         <h5>Портал</h5>
-        <a href="#about">О почках</a>
-        <a href="#quiz">Проверь себя</a>
-        <a href="#treatment">Диализ и пересадка</a>
-        <a href="#stories">Истории</a>
-        <a href="parents.html" style="font-weight:700;color:#fff">Родителям — навигатор</a>
+        <a href="health.html">Здоровье и профилактика</a>
+        <a href="risk.html">Группы риска</a>
+        <a href="parents.html">Детям с ХБП 3–5</a>
+        <a href="services.html">Сервисы и тесты</a>
+        <a href="search.html">Поиск по порталу</a>
+        <a href="about.html">О проекте</a>
       </div>
       <div class="footer-col">
         <h5>Фонд «Настенька»</h5>
@@ -347,11 +319,12 @@
         <p><a href="mailto:fond@nastenka.ru">fond@nastenka.ru</a></p>
         <p style="margin-top:8px">115211, г. Москва, Каширское ш., д. 51, к. 2</p>
         <p>пн–пт, 10:00–18:00</p>
+        <p style="margin-top:8px"><a href="https://nastenka.ru/" target="_blank" rel="noopener">Сайт фонда ↗</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Портал — информационный проект фонда «Настенька». Материалы не заменяют консультацию врача. При тревожных симптомах обратитесь к врачу или вызовите скорую помощь.</p>
-      <p>© 2026 Благотворительный фонд «Настенька» · Это прототип: данные и цифры — демонстрационные, перед запуском проверяются.</p>
+      <p>Материалы портала носят информационно-просветительский характер и не заменяют очную консультацию врача. При тревожных симптомах обратитесь к врачу.</p>
+      <p>© 2026 Благотворительный фонд «Настенька» · Прототип: цифры и контакты демонстрационные, перед запуском проверяются.</p>
       <p><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
     </div>
   </div>

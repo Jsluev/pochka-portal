@@ -309,5 +309,222 @@
       apply();
     }
 
+    /* ---------- Калькулятор СКФ ---------- */
+    var calcTabs = document.querySelector('[data-calc-tabs]');
+    if (calcTabs) {
+      var calcForm = document.querySelector('[data-calc-form]');
+      var adultFields = document.querySelector('[data-adult-fields]');
+      var childFields = document.querySelector('[data-child-fields]');
+      var calcResult = document.querySelector('[data-calc-result]');
+      var calcMode = 'adult';
+      var calcButtons = $$('button', calcTabs);
+
+      calcButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          calcMode = btn.getAttribute('data-mode') || 'adult';
+          calcButtons.forEach(function (b) {
+            b.classList.toggle('is-active', b === btn);
+          });
+          if (adultFields) adultFields.hidden = calcMode !== 'adult';
+          if (childFields) childFields.hidden = calcMode !== 'child';
+          if (calcResult) calcResult.classList.remove('is-visible');
+        });
+      });
+
+      if (calcForm && calcResult) {
+        calcForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var titleEl = calcResult.querySelector('b');
+          var textEl = calcResult.querySelector('p');
+          var gfr = 0;
+          var ok = true;
+
+          if (calcMode === 'adult') {
+            var sex = document.getElementById('calcSex').value;
+            var age = Number(document.getElementById('calcAge').value);
+            var crA = Number(document.getElementById('calcCrA').value);
+            var unitA = document.getElementById('calcUnitA').value;
+            if (unitA === 'umol') crA = crA / 88.4;
+            if (!age || age < 18 || !crA || crA <= 0) ok = false;
+            if (ok) {
+              var k = sex === 'female' ? 0.7 : 0.9;
+              var alpha = sex === 'female' ? -0.241 : -0.302;
+              gfr = 142 *
+                Math.pow(Math.min(crA / k, 1), alpha) *
+                Math.pow(Math.max(crA / k, 1), -1.200) *
+                Math.pow(0.9938, age);
+              if (sex === 'female') gfr = gfr * 1.012;
+            }
+          } else {
+            var childAge = Number(document.getElementById('calcChildAge').value);
+            var childSex = document.getElementById('calcChildSex').value;
+            var height = Number(document.getElementById('calcHeight').value);
+            var crC = Number(document.getElementById('calcCrC').value);
+            var unitC = document.getElementById('calcUnitC').value;
+            if (unitC === 'umol') crC = crC / 88.4;
+            if (childAge < 0 || !height || height <= 0 || !crC || crC <= 0) ok = false;
+            if (ok) {
+              var kChild;
+              if (childAge < 2) kChild = 0.45;
+              else if (childSex === 'female') kChild = 0.55;
+              else kChild = 0.70;
+              gfr = kChild * height / crC;
+            }
+          }
+
+          if (!ok || !isFinite(gfr)) {
+            calcResult.className = 'calc-result yellow is-visible';
+            if (titleEl) titleEl.textContent = 'Проверьте данные';
+            if (textEl) textEl.textContent = 'Нужны возраст, рост (для ребёнка) и креатинин больше нуля.';
+            return;
+          }
+
+          var rounded = Math.round(gfr);
+          var cls, title, note;
+          if (gfr > 150) {
+            cls = 'green';
+            title = 'СКФ ≈ 150 или выше';
+            note = 'У детей формула часто даёт завышенное значение. Врач смотрит не только на цифру, но и на возраст, анализы мочи и давление.';
+          } else if (gfr >= 90) {
+            cls = 'green';
+            title = 'СКФ ≈ ' + rounded + ' — обычный диапазон';
+            note = 'Это ориентир. Почки редко говорят о себе сами, поэтому раз в год всё равно сдавайте мочу и креатинин.';
+          } else if (gfr >= 60) {
+            cls = 'yellow';
+            title = 'СКФ ≈ ' + rounded + ' — чуть ниже 90';
+            note = 'Само по себе это не болезнь. Покажите результат врачу: он учтёт анализы мочи, давление и ваш возраст.';
+          } else {
+            cls = 'red';
+            title = 'СКФ ≈ ' + rounded + ' — ниже обычного';
+            note = 'Это повод показать результат врачу. Один расчёт не ставит диагноз, но его стоит обсудить.';
+          }
+          calcResult.className = 'calc-result ' + cls + ' is-visible';
+          if (titleEl) titleEl.textContent = title;
+          if (textEl) textEl.textContent = note;
+        });
+      }
+    }
+
+    /* ---------- Тест рисков на странице сервисов ---------- */
+    var riskQuiz = document.querySelector('[data-riskquiz]');
+    if (riskQuiz) {
+      var riskHint = riskQuiz.querySelector('[data-riskhint]');
+      var plural = function (n) {
+        var m10 = n % 10, m100 = n % 100;
+        if (m10 === 1 && m100 !== 11) return 'вопрос';
+        if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'вопроса';
+        return 'вопросов';
+      };
+
+      riskQuiz.addEventListener('click', function (e) {
+        var opt = e.target.closest('.quiz-opt');
+        if (!opt) return;
+        var row = opt.closest('.quiz-q');
+        if (!row) return;
+        $$('.quiz-opt', row).forEach(function (o) { o.classList.remove('is-on'); });
+        opt.classList.add('is-on');
+        row.setAttribute('data-answer', opt.getAttribute('data-risk') || '0');
+        $$('.quiz-result', riskQuiz).forEach(function (r) { r.classList.remove('is-visible'); });
+        if (riskHint) riskHint.textContent = 'Можно менять ответы — результат появится, когда будет готово.';
+      });
+
+      var riskGo = riskQuiz.querySelector('[data-riskgo]');
+      if (riskGo) {
+        riskGo.addEventListener('click', function () {
+          var rows = $$('.quiz-q', riskQuiz);
+          var left = rows.filter(function (r) { return !r.hasAttribute('data-answer'); }).length;
+          if (left) {
+            if (riskHint) riskHint.textContent = 'Осталось ответить на ' + left + ' ' + plural(left) + '.';
+            return;
+          }
+          var score = rows.reduce(function (sum, r) {
+            return sum + Number(r.getAttribute('data-answer') || 0);
+          }, 0);
+          var kind = score >= 3 ? 'high' : (score >= 1 ? 'mid' : 'low');
+          $$('.quiz-result', riskQuiz).forEach(function (r) {
+            r.classList.toggle('is-visible', r.getAttribute('data-riskresult') === kind);
+          });
+          if (riskHint) riskHint.textContent = 'Это ориентир, а не диагноз — результат лучше обсудить с врачом.';
+        });
+      }
+    }
+
+    /* ---------- Поиск по справочнику продуктов ---------- */
+    var productSearch = document.getElementById('productSearch');
+    if (productSearch) {
+      var productTable = document.getElementById('productTable');
+      var productRows = productTable ? $$('.product-row:not(.head)', productTable) : [];
+      var productEmpty = document.getElementById('productEmpty');
+      var applyProducts = function () {
+        var q = (productSearch.value || '').trim().toLowerCase();
+        var shown = 0;
+        productRows.forEach(function (row) {
+          var ok = !q || row.textContent.toLowerCase().indexOf(q) > -1;
+          row.hidden = !ok;
+          if (ok) shown++;
+        });
+        if (productEmpty) productEmpty.classList.toggle('is-visible', shown === 0);
+      };
+      productSearch.addEventListener('input', applyProducts);
+      applyProducts();
+    }
+
+    /* ---------- Поиск по порталу ---------- */
+    var searchForm = document.querySelector('[data-search-form]');
+    if (searchForm) {
+      var searchInput = document.getElementById('searchInput');
+      var searchResults = document.getElementById('searchResults');
+      var searchCount = document.getElementById('searchCount');
+      var searchIndex = [
+        { t: 'Здоровье и профилактика', u: 'health.html', d: 'Как работают почки, анализы, вода, питание и аптечка.', k: 'почки анализы моча креатинин вода соль питание лекарства отёки мифы', p: 1 },
+        { t: 'Группы риска', u: 'risk.html', d: 'Давление, диабет и наследственность: что контролировать.', k: 'давление диабет сахар наследственность риск чек-лист', p: 1 },
+        { t: 'Навигатор для родителей', u: 'parents.html', d: 'Маршруты, клиники, документы и поддержка семей с детской ХБП.', k: 'ребёнок хбп дети родители маршрут помощь', p: 1 },
+        { t: 'Сервисы и тесты', u: 'services.html', d: 'Калькулятор СКФ, тест рисков и справочник продуктов.', k: 'скф калькулятор тест продукты калий фосфор белок', p: 1 },
+        { t: 'Каталог учреждений', u: 'clinics.html', d: 'Профильные центры, фильтры по городу, возрасту и помощи.', k: 'клиника центр учреждение город найти трансплантация диализ', p: 1 },
+        { t: 'Маршруты получения помощи', u: 'routes.html', d: 'Пошаговые маршруты от диагноза до лечения.', k: 'маршрут этапы диагноз направление лечение', p: 1 },
+        { t: 'Права и документы', u: 'rights.html', d: '057/у, ВМП, инвалидность, лекарства, проезд и жильё.', k: '057у справка вмп инвалидность льготы документы проезд', p: 1 },
+        { t: 'База знаний', u: 'knowledge.html', d: 'Первые шаги, диагнозы, диализ, трансплантация, питание.', k: 'знания диагноз диализ трансплантация пересадка питание', p: 1 },
+        { t: 'Люди и сообщество', u: 'community.html', d: 'Чат «Пересадка», психологи, истории семей и помощь фонда.', k: 'сообщество чат пересадка психолог история фонд', p: 0 },
+        { t: 'О проекте', u: 'about.html', d: 'Кто делает портал и как проверяются материалы.', k: 'фонд настенька редакция эксперты доверие', p: 0 },
+        { t: 'Что смотреть в анализе мочи и креатинине', u: 'article-analizy.html', d: 'Белок, эритроциты, креатинин и СКФ без латыни.', k: 'анализ мочи креатинин скф белок эритроциты норма', p: 0 },
+        { t: 'Сколько воды пить на самом деле', u: 'article-voda.html', d: 'Миф про два литра и понятные ориентиры.', k: 'вода литры жажда моча жидкость', p: 0 },
+        { t: 'Соль, белок и повседневная еда', u: 'article-pitanie.html', d: 'Где скрытая соль и почему не нужны жёсткие диеты.', k: 'соль белок диета продукты еда', p: 0 },
+        { t: 'Аптечка, которая не вредит почкам', u: 'article-lekarstva.html', d: 'Обезболивающие, травы и БАДы при долгом приёме.', k: 'лекарства аптечка нпвс травы бады безопасность', p: 0 },
+        { t: 'Отёки по утрам', u: 'article-oteki.html', d: 'Когда виноваты почки, а когда — соль и недосып.', k: 'отёки под глазами почки сон давление', p: 0 },
+        { t: '«Чистка почек» и БАДы', u: 'article-mify.html', d: 'Спокойный разбор популярных обещаний.', k: 'мифы чистка почек бады реклама', p: 0 },
+        { t: 'Почему высокое давление бьёт по почкам', u: 'article-davlenie.html', d: 'Связь, которую не чувствуешь годами.', k: 'давление гипертония почки анализы', p: 0 },
+        { t: 'Диабет и почки', u: 'article-diabet.html', d: 'Два анализа в год при сахарном диабете.', k: 'диабет сахар микроальбуминурия анализы', p: 0 },
+        { t: 'Если у близких были болезни почек', u: 'article-nasledstvo.html', d: 'Наследственность — повод не откладывать чек-ап.', k: 'наследственность семья родственники поликистоз', p: 0 }
+      ];
+
+      var renderSearch = function () {
+        var q = (searchInput.value || '').trim().toLowerCase();
+        var words = q ? q.split(/\s+/) : [];
+        var found = searchIndex.filter(function (item) {
+          if (!words.length) return !!item.p;
+          var hay = (item.t + ' ' + item.d + ' ' + item.k).toLowerCase();
+          return words.every(function (w) { return hay.indexOf(w) > -1; });
+        });
+        if (searchCount) searchCount.textContent = q ? ('Найдено: ' + found.length) : 'Часто ищут:';
+        if (!searchResults) return;
+        if (!found.length) {
+          searchResults.innerHTML = '<div class="product-empty is-visible">Ничего не нашлось. Попробуйте другое слово — например, «анализы», «диализ» или «льготы».</div>';
+          return;
+        }
+        searchResults.innerHTML = found.map(function (item) {
+          return '<a class="search-result" href="' + item.u + '">' +
+            '<small>' + (item.u.indexOf('article-') === 0 ? 'Материал' : 'Раздел') + '</small>' +
+            '<b>' + item.t + '</b><p>' + item.d + '</p></a>';
+        }).join('');
+      };
+
+      searchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        renderSearch();
+      });
+      if (searchInput) searchInput.addEventListener('input', renderSearch);
+      renderSearch();
+    }
+
   });
 })();

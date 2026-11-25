@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Внутренняя схема: двухуровневая структура портала | «почка»</title>
+<title>Внутренняя схема: структура портала по аудиториям | «почка»</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,58 +30,82 @@
 <div class="container" style="padding-top:36px;padding-bottom:60px">
   <div class="page-head">
     <span class="eyebrow">Внутренний документ · не для публикации</span>
-    <h1>Как устроен портал: два уровня</h1>
-    <p class="sub">Схема для обсуждения внутри команды и с заказчиком. Пользователи эту страницу не видят: на сайте эти два уровня связаны незаметно — кнопкой «Родителям», блоками «Это про вашего ребёнка?» в статьях и QR-кодами из больниц.</p>
+    <h1>Как устроен портал: три входа и одна глубина</h1>
+    <p class="sub">Схема для обсуждения внутри команды и с заказчиком. Пользователи эту страницу не видят: на сайте все входы связаны незаметно — меню, полезными ссылками, блоками «Это про вашего ребёнка?» и QR-кодами из больниц.</p>
   </div>
 
   <div class="iceberg">
     <div class="ice-top">
-      <div class="ice-title"><b>Портал для всех</b><span class="tag">уровень 1 · index.html</span></div>
-      <p>Массовый экспертный портал о здоровье почек: как работают почки, чек-ап, диализ и пересадка простыми словами, истории людей, фандрайзинг. Для любого человека, который ищет информацию в поисковике.</p>
+      <div class="ice-title"><b>Портал для всех</b><span class="tag">вход 1 · index.html</span></div>
+      <p>Массовый экспертный портал о здоровье почек. Отвечает на общие вопросы, даёт спокойные привычки и быстрые проверки. Здесь человек может просто читать — без регистрации и без воронки.</p>
       <div class="ice-list">
-        <span class="chip">О почках</span>
-        <span class="chip">Проверь себя</span>
-        <span class="chip">Диализ и пересадка</span>
-        <span class="chip">Истории</span>
-        <span class="chip">Помочь фонду</span>
+        <a class="chip" href="health.html">Здоровье</a>
+        <a class="chip" href="article-analizy.html">Анализы</a>
+        <a class="chip" href="services.html">Тесты и калькулятор</a>
+        <a class="chip" href="article-mify.html">Мифы</a>
+        <a class="chip" href="about.html">О проекте</a>
       </div>
     </div>
     <div class="funnel-arrow">
       <svg width="26" height="30" viewBox="0 0 26 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2v20M5 15l8 9 8-9M3 28h20"/></svg>
     </div>
     <div class="ice-bottom">
-      <div class="ice-title"><b>Навигатор для родителей</b><span class="tag tag-coral">уровень 2 · parents.html</span></div>
-      <p>Глубокая зона для семей, где ребёнку нужна медицинская помощь: маршруты лечения, каталог клиник, права и документы, база знаний, сообщество «Пересадка».</p>
+      <div class="ice-title"><b>Группы риска</b><span class="tag">вход 2 · risk.html</span></div>
+      <p>Взрослые с давлением, диабетом или наследственностью. Им важен не общий разговор о почках, а понятный чек-лист, тест рисков и список анализов, который можно обсудить с терапевтом.</p>
       <div class="ice-list">
-        <a class="chip" href="parents.html">Маршруты лечения</a>
-        <a class="chip" href="parents.html">Клиники и центры</a>
-        <a class="chip" href="parents.html">Права и документы</a>
-        <a class="chip" href="parents.html">Сообщество «Пересадка»</a>
+        <a class="chip" href="risk.html">Давление и диабет</a>
+        <a class="chip" href="services.html#test">Тест рисков</a>
+        <a class="chip" href="services.html#skf">Калькулятор СКФ</a>
+        <a class="chip" href="article-davlenie.html">Статьи</a>
+      </div>
+    </div>
+    <div class="funnel-arrow">
+      <svg width="26" height="30" viewBox="0 0 26 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2v20M5 15l8 9 8-9M3 28h20"/></svg>
+    </div>
+    <div class="ice-bottom">
+      <div class="ice-title"><b>Навигатор для родителей</b><span class="tag tag-coral">вход 3 · parents.html</span></div>
+      <p>Глубокая зона для семей, где ребёнку нужна медицинская помощь. Здесь уже не статья, а действие: маршрут, конкретное учреждение, документ, чек-лист и опыт других семей.</p>
+      <div class="ice-list">
+        <a class="chip" href="routes.html">Маршруты лечения</a>
+        <a class="chip" href="clinics.html">Каталог учреждений</a>
+        <a class="chip" href="rights.html">Права и документы</a>
+        <a class="chip" href="knowledge.html">Знания</a>
+        <a class="chip" href="community.html">Люди</a>
       </div>
       <a class="btn btn-white btn-sm mt-16" href="parents.html">Открыть навигатор</a>
     </div>
   </div>
 
   <div class="block mt-32">
-    <h3>Как уровни связаны (незаметно для пользователя)</h3>
+    <h3>Как входы связаны (незаметно для пользователя)</h3>
     <p class="block-sub">Ни на одной публичной странице нет слов «айсберг» или «структура портала» — только полезные переходы.</p>
     <div class="sub-grid">
       <div class="sub-card">
-        <h4>Кнопка в шапке</h4>
-        <p>На основном портале — заметная кнопка «Родителям». На навигаторе — «Основной портал». Стандартный паттерн смены аудитории.</p>
+        <h4>Меню и подшапка</h4>
+        <p>Верхнее меню ведёт в три входа, подшапка в навигаторе — по его разделам: маршруты, учреждения, документы, знания, люди.</p>
       </div>
       <div class="sub-card">
-        <h4>Блоки «Это про вашего ребёнка?»</h4>
-        <p>В статьях про диализ и пересадку — после короткого объяснения для всех идёт мягкий переход в навигатор для тех, кому это нужно.</p>
+        <h4>Блок «Это про вашего ребёнка?»</h4>
+        <p>В общих статьях и на хабах стоит мягкий переход в навигатор для тех, кому он действительно нужен.</p>
+      </div>
+      <div class="sub-card">
+        <h4>Каталог как точка действия</h4>
+        <p>Срез по медучреждениям сохранён из прототипа D: фильтры, карточка центра и ссылки-параметры из маршрутов (<code>?need=transplant</code>, <code>?need=dialysis</code>).</p>
       </div>
       <div class="sub-card">
         <h4>QR-коды из больниц</h4>
-        <p>Листовки в медучреждениях ведут сразу на целевую страницу навигатора (start.html) — родитель минует массовый уровень.</p>
+        <p>Листовки в медучреждениях ведут сразу на <code>start.html</code> — родитель минует общий уровень и попадает в нужный раздел.</p>
       </div>
-      <div class="sub-card">
-        <h4>Поисковики</h4>
-        <p>Статьи массового уровня отвечают на общие запросы («диализ что это»), и из них же воронка ведёт родителей глубже.</p>
-      </div>
+    </div>
+  </div>
+
+  <div class="block mt-32">
+    <h3>Что добавлено для двух других аудиторий</h3>
+    <p class="block-sub">У родителей уже был глубокий срез. У двух остальных он собран из идей документа, но без лишней сложности.</p>
+    <div class="fact-cards mt-16">
+      <div class="fact-card"><span class="fact-num">хаб</span><h4>Здоровье</h4><p>Отдельная страница с фактами, материалами и инструментами — та же логика раздела, что у навигатора, но легче.</p></div>
+      <div class="fact-card"><span class="fact-num">чекап</span><h4>Группы риска</h4><p>Ситуации, короткий чек-лист и тест: не «про болезнь» вообще, а конкретные шаги на ближайшем приёме.</p></div>
+      <div class="fact-card"><span class="fact-num">сервис</span><h4>Инструменты</h4><p>СКФ, тест рисков и справочник продуктов работают прямо в прототипе и связывают все три входа.</p></div>
     </div>
   </div>
 </div>
