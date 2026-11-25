@@ -42,6 +42,12 @@
 | `community.html` | Сообщество, чат «Пересадка», психологи, истории и помощь фонда |
 | `start.html` | QR-лендинг из памяток в медицинских организациях |
 
+### Источники цифр на главной
+
+- `≈ 674 млн` человек с ХБП — [факт-лист ВОЗ](https://www.who.int/news-room/fact-sheets/detail/kidney-disease), обновлён в апреле 2026.
+- `≈ 190 л` крови и `225 км` почечных трубочек — [National Kidney Federation, Великобритания](https://www.kidney.org.uk/information-about-kidneys).
+- `≈ 2 млн` нефронов — [NIDDK, США](https://niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work).
+
 ### Внутреннее
 
 | Файл | Страница |
