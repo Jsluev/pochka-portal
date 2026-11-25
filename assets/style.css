@@ -295,7 +295,11 @@ h3 { font-size: 18px; line-height: 1.35; }
 .path-card .path-list span { font-size: 12.5px; color: var(--muted); padding-left: 0; }
 .path-card .path-list span::before { content: "· "; color: var(--marker); }
 .path-card .path-go { grid-column: 3; grid-row: 1 / span 3; font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
-.path-card.is-core { border-top-color: var(--marker); }
+.path-card.is-core {
+  background: var(--warm); border: 1px solid #eadfce; border-left: 3px solid var(--marker);
+  border-radius: 0; padding: 24px 26px;
+}
+.path-card.is-core:hover { border-color: #eadfce; border-left-color: var(--marker); }
 .path-card.is-core .path-kicker { color: var(--alert); }
 
 .tool-card {
@@ -745,6 +749,7 @@ h3 { font-size: 18px; line-height: 1.35; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .block, .article, .rights-block, .step-panel, .post-body { padding: 20px 18px; }
   .path-card { grid-template-columns: 1fr auto; }
+  .path-card.is-core { padding: 24px 18px; }
   .path-card > .path-kicker { grid-column: 1; grid-row: 1; }
   .path-card h3 { grid-column: 1; grid-row: 2; }
   .path-card p, .path-card .path-list { grid-column: 1; }
