@@ -76,7 +76,7 @@
 - `≈ 150–180 л` фильтрата в сутки (около 7 литров в час) — [NIDDK](https://www.niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work), [Kidney Research UK](https://www.kidneyresearchuk.org/kidney-health-information/about-kidney-disease/what-the-kidneys-do/).
 - `≈ 0,6 м²` — поверхность капилляров клубочков (6 000 см²) при размере почки около 12 см — [Bohle и др., Kidney International, 1998](https://pubmed.ncbi.nlm.nih.gov/9736285/).
 - `≈ 1 л` крови в минуту, около пятой части сердечного выброса — [StatPearls, NCBI](https://www.ncbi.nlm.nih.gov/books/NBK482248/).
-- `163 пересадки почки детям в 2025 году`, из них 85 от родственных доноров, 9 центров — [регистр Российского трансплантологического общества](https://journal.transpl.ru/vtio/article/download/2249/2025).
+- `163 операции по пересадке почек детям в 2025 году`, из них 85 от родственных доноров, 9 центров — [регистр Российского трансплантологического общества](https://journal.transpl.ru/vtio/article/download/2249/2025).
 - `87 детей` и `44 семьи` с жильём в 2025 году — [годовой отчёт фонда «Настенька»](https://cdn.nastenka.ru/posts/823/docs/UlEYdtkJvC5aniShuvE7Zz0pv7Og11IUcVnS6DNX.pdf).
 
 ### Внутреннее
