@@ -31,7 +31,7 @@
     </nav>
     <div class="header-actions">
       <a class="btn btn-ghost btn-sm" href="search.html">Найти</a>
-      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button><button class="burger-label" id="burgerLabel" type="button">Разделы</button>
     </div>
   </div>
 </header>
@@ -108,10 +108,14 @@
     <span class="count" id="clinicCount">Показано: 6 из 6 центров</span>
   </div>
 
+  <div class="note" style="margin-bottom:18px">
+    <span><b>По стране в 2025 году:</b> 9 центров выполняли пересадку почки детям; 163 операции, из них 85 — от родственных доноров. Источник: регистр РТО. Это общероссийские данные, а не показатель одного центра.</span>
+  </div>
+
   <!-- Сетка клиник -->
   <div class="clinics-grid" id="clinicGrid">
 
-    <a class="clinic-card" href="clinic-card.html"
+    <a class="clinic-card" href="clinic-card.html?center=shumakov"
        data-type="federal" data-city="moscow"
        data-help="diagnostic transplant followup"
        data-ages="child teen" data-consult="yes">
@@ -121,12 +125,11 @@
       <div class="clinic-meta">
         <div><b>Кого принимают:</b> дети с ХПН 4–5 стадии (трансплантация от 10 кг — уточняется)</div>
         <div><b>Регионы:</b> вся Россия — по направлению (ОМС/ВМП)</div>
-        <div><b>В 2025 году:</b> 163 операции по пересадке почек детям, из них 85 — от родственных доноров. Источник: регистр РТО.</div>
       </div>
       <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
     </a>
 
-    <a class="clinic-card" href="clinic-card.html"
+    <a class="clinic-card" href="clinic-card.html?center=nczd"
        data-type="federal" data-city="moscow"
        data-help="diagnostic dialysis transplant followup"
        data-ages="small child teen" data-consult="yes">
@@ -141,7 +144,7 @@
       <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
     </a>
 
-    <a class="clinic-card" href="clinic-card.html"
+    <a class="clinic-card" href="clinic-card.html?center=rdkb"
        data-type="federal" data-city="moscow"
        data-help="diagnostic dialysis transplant followup"
        data-ages="small child teen" data-consult="yes">
@@ -156,7 +159,7 @@
       <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
     </a>
 
-    <a class="clinic-card" href="clinic-card.html"
+    <a class="clinic-card" href="clinic-card.html?center=filatov"
        data-type="regional" data-city="moscow"
        data-help="diagnostic dialysis followup"
        data-ages="small child teen" data-consult="yes">
@@ -171,7 +174,7 @@
       <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
     </a>
 
-    <a class="clinic-card" href="clinic-card.html"
+    <a class="clinic-card" href="clinic-card.html?center=spb"
        data-type="federal" data-city="spb"
        data-help="diagnostic dialysis transplant followup"
        data-ages="small child teen" data-consult="yes">
@@ -186,7 +189,7 @@
       <div class="clinic-foot"><span class="tag tag-blue">Заочная консультация</span><span class="more">Карточка центра →</span></div>
     </a>
 
-    <a class="clinic-card" href="clinic-card.html"
+    <a class="clinic-card" href="clinic-card.html?center=ekb"
        data-type="regional" data-city="regions"
        data-help="diagnostic dialysis followup"
        data-ages="child teen" data-consult="no">
@@ -273,7 +276,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Портал — информационный проект фонда «Настенька». Материалы не заменяют консультацию врача. При тревожных симптомах обратитесь к педиатру или вызовите скорую помощь.</p>
+      <p>Портал — информационный проект фонда «Настенька». Материалы не заменяют консультацию врача. При тревожных симптомах обратитесь к терапевту или нефрологу (для ребёнка — к педиатру) или вызовите скорую помощь.</p>
       <p>© 2026 Благотворительный фонд «Настенька» · Материалы не заменяют консультацию врача.</p>
       <p><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
     </div>

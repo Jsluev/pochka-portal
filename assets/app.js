@@ -88,6 +88,10 @@
     if (burger && nav) {
       burger.setAttribute('aria-expanded', 'false');
       burger.setAttribute('aria-controls', 'mainNav');
+      var burgerLabel = document.getElementById('burgerLabel');
+      if (burgerLabel) {
+        burgerLabel.addEventListener('click', function () { burger.click(); });
+      }
 
       var subnav = document.querySelector('.subnav');
       if (subnav) {
@@ -149,7 +153,7 @@
       var rpBar = document.getElementById('rpBar');
       var rpText = document.getElementById('rpText');
 
-      var show = function (name) {
+      var show = function (name, initial) {
         var idx = 0;
         buttons.forEach(function (b, i) {
           var active = b.getAttribute('data-step') === name;
@@ -164,7 +168,7 @@
           rpText.textContent = 'шаг ' + (idx + 1) + ' из ' + buttons.length;
         }
         var panel = group.querySelector('.step-panel[data-step="' + name + '"]');
-        if (panel && window.innerWidth < 1080) {
+        if (panel && !initial && window.innerWidth < 1080) {
           panel.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
         }
       };
@@ -175,7 +179,7 @@
       $$('[data-go]', group).forEach(function (btn) {
         btn.addEventListener('click', function () { show(btn.getAttribute('data-go')); });
       });
-      if (buttons.length) show(buttons[0].getAttribute('data-step'));
+      if (buttons.length) show(buttons[0].getAttribute('data-step'), true);
     });
 
     /* ---------- Интерактивный чек-лист перед поездкой ---------- */
@@ -247,6 +251,7 @@
       var cards = $$('.clinic-card', grid);
       var countEl = document.getElementById('clinicCount');
       var emptyEl = document.getElementById('clinicEmpty');
+      var emptyDefault = emptyEl ? emptyEl.innerHTML : '';
       var searchInput = document.getElementById('fSearch');
       var selType = document.getElementById('fType');
       var selCity = document.getElementById('fCity');
@@ -281,7 +286,16 @@
         });
 
         if (countEl) countEl.textContent = 'Показано: ' + shown + ' из ' + cards.length;
-        if (emptyEl) emptyEl.classList.toggle('is-visible', shown === 0);
+        if (emptyEl) {
+          emptyEl.classList.toggle('is-visible', shown === 0);
+          if (shown === 0 && q && /057|направлен|инвалид/i.test(q)) {
+            emptyEl.innerHTML = '<b>По этому запросу клиник нет.</b><br>' +
+              'Откройте памятку по направлению 057/у: ' +
+              '<a href="rights.html#057">что это и как получить</a>.';
+          } else {
+            emptyEl.innerHTML = emptyDefault;
+          }
+        }
       };
 
       [searchInput, selType, selCity, selHelp, selAge].forEach(function (el) {
@@ -342,6 +356,108 @@
       apply();
     }
 
+    /* ---------- Карточка центра: подставляем сведения из каталога ---------- */
+    var centerKey = new URLSearchParams(window.location.search).get('center');
+    if (centerKey && document.getElementById('clinicTitle')) {
+      var helpLabels = {
+        diagnostic: 'Диагностика', dialysis: 'Диализ',
+        transplant: 'Трансплантация', followup: 'Наблюдение'
+      };
+      var centers = {
+        shumakov: {
+          crumb: 'НМИЦ им. Шумакова',
+          type: 'Федеральный центр', city: 'Москва',
+          title: 'НМИЦ трансплантологии и искусственных органов им. акад. В. И. Шумакова',
+          short: 'Один из центров, где выполняют пересадку почки детям: родственная и посмертная пересадка, лист ожидания, ведение после операции.',
+          who: 'Дети с ХПН 4–5 стадии (трансплантация от 10 кг — уточняется)',
+          regions: 'Вся Россия — по направлению (ОМС/ВМП)',
+          consult: 'Есть: документы по почте, через сайт центра или через телемедицину «врач–врач».',
+          help: ['diagnostic', 'transplant', 'followup'], moscow: true
+        },
+        nczd: {
+          crumb: 'НМИЦ здоровья детей',
+          type: 'Федеральный центр', city: 'Москва',
+          title: 'НМИЦ здоровья детей',
+          short: 'Диагностика редких заболеваний почек, диализ — в том числе детям от 3 кг, пересадка — включая детей массой менее 10 кг по показаниям.',
+          who: 'Дети любого возраста, в том числе с массой тела от 3 кг',
+          regions: 'Все регионы России',
+          consult: 'Есть. Уточните способ подачи документов в центре.',
+          help: ['diagnostic', 'dialysis', 'transplant', 'followup'], moscow: true
+        },
+        rdkb: {
+          crumb: 'РДКБ им. Дмитрия Рогачёва',
+          type: 'Федеральный центр', city: 'Москва',
+          title: 'РДКБ — филиал НМИЦ ДГОИ им. Дмитрия Рогачёва',
+          short: 'Нефрологическое отделение: ведение ХПН, диализ, подготовка к трансплантации и сопровождение после неё.',
+          who: 'Дети всех возрастов',
+          regions: 'Вся Россия — по направлению',
+          consult: 'Есть. Уточните способ подачи документов в центре.',
+          help: ['diagnostic', 'dialysis', 'transplant', 'followup'], moscow: true
+        },
+        filatov: {
+          crumb: 'ДГКБ им. Н. Ф. Филатова',
+          type: 'Городская больница', city: 'Москва',
+          title: 'ДГКБ им. Н. Ф. Филатова',
+          short: 'Детская клиника Москвы с отделением диализа: ведение детей с ХПН и подготовка к трансплантации.',
+          who: 'Дети всех возрастов',
+          regions: 'Москва; иногородние — по направлению',
+          consult: 'Есть. Уточните способ подачи документов в центре.',
+          help: ['diagnostic', 'dialysis', 'followup'], moscow: true
+        },
+        spb: {
+          crumb: 'СПбГПМУ',
+          type: 'Федеральный центр', city: 'Санкт-Петербург',
+          title: 'СПбГПМУ (Педиатрический университет)',
+          short: 'Детская нефрология, диализ и трансплантация почки. Один из шести центров детской трансплантации в России.',
+          who: 'Дети всех возрастов',
+          regions: 'СЗФО и вся Россия — по направлению',
+          consult: 'Есть. Уточните способ подачи документов в центре.',
+          help: ['diagnostic', 'dialysis', 'transplant', 'followup'], moscow: false
+        },
+        ekb: {
+          crumb: 'ОДКБ № 1, Екатеринбург',
+          type: 'Региональный центр', city: 'Екатеринбург',
+          title: 'ОДКБ № 1, Екатеринбург',
+          short: 'Нефрологическое отделение и гемодиализ детям в регионе. Наблюдение и подготовка к трансплантации — совместно с федеральными центрами.',
+          who: 'Дети от 3 лет',
+          regions: 'Уральский федеральный округ',
+          consult: 'Уточняется.',
+          help: ['diagnostic', 'dialysis', 'followup'], moscow: false
+        }
+      };
+      var c = centers[centerKey];
+      if (c) {
+        var setText = function (id, text) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = text;
+        };
+        setText('clinicCrumb', c.crumb);
+        setText('clinicEyebrow', c.type + ' · ' + c.city);
+        setText('clinicTitle', c.title);
+        setText('clinicSub', c.short);
+        setText('clinicWho', c.who);
+        setText('clinicRegions', c.regions);
+        setText('clinicConsult', c.consult);
+        setText('clinicContactsLine', 'Вы смотрите: ' + c.title + '. Сведения карточки приведены по каталогу центров портала.');
+        var chips = document.getElementById('clinicChips');
+        if (chips) {
+          chips.innerHTML = '<span class="tag">' + c.type + '</span>' +
+            c.help.map(function (h) { return '<span class="tag tag-blue">' + helpLabels[h] + '</span>'; }).join('');
+        }
+        var helpEl = document.getElementById('clinicHelp');
+        if (helpEl) {
+          helpEl.innerHTML = c.help.map(function (h) { return '<span class="chip">' + helpLabels[h] + '</span>'; }).join('');
+        }
+        if (!c.moscow) {
+          $$('[data-local="moscow"]').forEach(function (el) { el.hidden = true; });
+          var quote = document.getElementById('clinicQuote');
+          if (quote) quote.hidden = true;
+          var localNote = document.getElementById('clinicLocalNote');
+          if (localNote) localNote.hidden = false;
+        }
+      }
+    }
+
     /* ---------- Калькулятор СКФ ---------- */
     var calcTabs = document.querySelector('[data-calc-tabs]');
     if (calcTabs) {
@@ -390,7 +506,6 @@
             }
           } else {
             var childAge = Number(document.getElementById('calcChildAge').value);
-            var childSex = document.getElementById('calcChildSex').value;
             var height = Number(document.getElementById('calcHeight').value);
             var crC = Number(document.getElementById('calcCrC').value);
             var unitC = document.getElementById('calcUnitC').value;
@@ -410,22 +525,37 @@
 
           var rounded = Math.round(gfr);
           var cls, title, note;
-          if (gfr > 150) {
+          var code = rounded >= 90 ? 'G1' : rounded >= 60 ? 'G2' : rounded >= 45 ? 'G3a' :
+                     rounded >= 30 ? 'G3b' : rounded >= 15 ? 'G4' : 'G5';
+          var gLabel = calcMode === 'adult' ? code + ', ' : '';
+          if (rounded > 150) {
             cls = 'green';
-            title = 'СКФ ≈ 150 или выше';
+            title = 'СКФ ≈ 150 или выше' + (calcMode === 'adult' ? ' · ' + code : '');
             note = 'У детей результат особенно ориентировочный: врач смотрит не только на цифру, но и на рост, анализы мочи и давление.';
-          } else if (gfr >= 90) {
+          } else if (rounded >= 90) {
             cls = 'green';
-            title = 'СКФ ≈ ' + rounded + ' — обычный диапазон';
+            title = 'СКФ ≈ ' + rounded + ' — ' + gLabel + 'обычный диапазон';
             note = 'Это ориентир. Если есть факторы риска, обсудите с врачом, какие анализы и как часто сдавать.';
-          } else if (gfr >= 60) {
+          } else if (rounded >= 60) {
             cls = 'yellow';
-            title = 'СКФ ≈ ' + rounded + ' — чуть ниже 90';
-            note = 'Само по себе это не болезнь. Покажите результат врачу: он учтёт анализы мочи, давление и ваш возраст.';
+            title = 'СКФ ≈ ' + rounded + ' — ' + gLabel + 'лёгкое снижение';
+            note = 'Само по себе это не болезнь. Контроль не реже 1 раза в год: моча, креатинин с СКФ и давление; при диабете — микроальбуминурия. Покажите результат врачу.';
+          } else if (rounded >= 45) {
+            cls = 'yellow';
+            title = 'СКФ ≈ ' + rounded + ' — ' + gLabel + 'умеренное снижение';
+            note = 'Покажите результат врачу и обсудите план наблюдения: при G3a его обычно проверяют около 2 раз в год.';
+          } else if (rounded >= 30) {
+            cls = 'yellow';
+            title = 'СКФ ≈ ' + rounded + ' — ' + gLabel + 'выраженное снижение';
+            note = 'Нужен план ведения с врачом: при G3b контроль обычно около 3 раз в год.';
+          } else if (rounded >= 15) {
+            cls = 'red';
+            title = 'СКФ ≈ ' + rounded + ' — ' + gLabel + 'тяжёлое снижение';
+            note = 'Обсудите с врачом план лечения: при G4 контроль обычно около 4 раз в год.';
           } else {
             cls = 'red';
-            title = 'СКФ ≈ ' + rounded + ' — ниже обычного';
-            note = 'Это повод показать результат врачу. Один расчёт не ставит диагноз, но его стоит обсудить.';
+            title = 'СКФ ≈ ' + rounded + ' — ' + gLabel + 'терминальная стадия';
+            note = 'Один расчёт не ставит диагноз, но такой результат стоит обсудить с врачом как можно скорее.';
           }
           calcResult.className = 'calc-result ' + cls + ' is-visible';
           if (titleEl) titleEl.textContent = title;
@@ -473,7 +603,7 @@
           $$('.quiz-result', riskQuiz).forEach(function (r) {
             r.classList.toggle('is-visible', r.getAttribute('data-riskresult') === kind);
           });
-          if (riskHint) riskHint.textContent = 'Это ориентир, а не диагноз — результат лучше обсудить с врачом.';
+          if (riskHint) riskHint.textContent = 'Баллы: ' + score + ' из 7. 3 и более — повод обсудить анализы с врачом. Это ориентир, а не диагноз.';
         });
       }
     }
@@ -486,6 +616,7 @@
       var archInput = archive.querySelector('[data-archive-search]');
       var archCount = archive.querySelector('[data-archive-count]');
       var archEmpty = archive.querySelector('[data-archive-empty]');
+      var archReset = archive.querySelector('[data-archive-reset]');
       var activeTag = 'all';
       var applyArchive = function () {
         var q = (archInput ? archInput.value : '').trim().toLowerCase();
@@ -514,6 +645,18 @@
         });
       });
       if (archInput) archInput.addEventListener('input', applyArchive);
+      if (archReset) {
+        archReset.addEventListener('click', function () {
+          if (archInput) archInput.value = '';
+          activeTag = 'all';
+          archChips.forEach(function (chip) {
+            var on = chip.getAttribute('data-archive-tag') === 'all';
+            chip.classList.toggle('is-active', on);
+            chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          applyArchive();
+        });
+      }
       applyArchive();
     }
 
@@ -553,7 +696,7 @@
         { t: 'Права и документы', u: 'rights.html', d: '057/у, ВМП, инвалидность, лекарства, проезд и жильё.', k: '057у справка вмп инвалидность льготы документы проезд', p: 1 },
         { t: 'Знания: обзор', u: 'knowledge.html', d: 'Указатель справочных страниц о здоровье почек.', k: 'знания справочник почки', p: 1 },
         { t: 'Диагнозы и состояния', u: 'knowledge-diagnoses.html', d: 'ХПН, острые состояния, гломерулярные болезни, аномалии.', k: 'диагноз хпн нефрит поликистоз рефлюкс', p: 0 },
-        { t: 'Стадии ХПН', u: 'knowledge-stages.html', d: 'Категории СКФ и альбуминурии.', k: 'стадии скф альбуминурия г стадия', p: 0 },
+        { t: 'Стадии ХПН', u: 'knowledge-stages.html', d: 'Категории СКФ и альбуминурии.', k: 'стадии скф альбуминурия г стадия обе цифры две цифры вторая цифра', p: 0 },
         { t: 'Питание при ХПН', u: 'knowledge-nutrition.html', d: 'Соль, белок, калий и фосфор без жёстких диет без врача.', k: 'питание соль белок калий фосфор диета', p: 0 },
         { t: 'Образ жизни', u: 'knowledge-lifestyle.html', d: 'Давление, вода, сон, лекарства и нагрузка.', k: 'вода давление сон лекарства нагрузка привычки', p: 0 },
         { t: 'Диализ', u: 'knowledge-dialysis.html', d: 'Гемодиализ и перитонеальный диализ, подготовка и жизнь на лечении.', k: 'диализ гемодиализ перитонеальный фистула катетер', p: 0 },
@@ -564,15 +707,15 @@
         { t: 'Врачам: мониторинг', u: 'doctors-monitoring.html', d: 'Частота наблюдения и перечень контроля.', k: 'мониторинг анализы частота наблюдение', p: 0 },
         { t: 'Врачам: дети', u: 'doctors-pediatric.html', d: 'Рост, питание, врождённые аномалии и подготовка к переходу.', k: 'дети рост питание аномалии педиатрия', p: 0 },
         { t: 'Врачам: неотложные состояния', u: 'doctors-urgent.html', d: 'Красные флаги и порядок действий.', k: 'неотложные красные флаги калий отёк', p: 0 },
-        { t: 'Врачам: переход', u: 'doctors-transition.html', d: 'Перевод пациента из педиатрии во взрослую сеть.', k: 'переход преемственность взрослая сеть', p: 0 },
+        { t: 'Врачам: переход', u: 'doctors-transition.html', d: 'Перевод пациента из педиатрии во взрослую сеть.', k: 'переход преемственность взрослая сеть 18 взрослый пациент', p: 0 },
         { t: 'Врачам: памятки', u: 'doctors-tools.html', d: 'Шаблоны и чек-листы для приёма и сопровождения.', k: 'памятка чек-лист шаблон анкета', p: 0 },
         { t: 'Материалы', u: 'materials.html', d: 'Свежие материалы проекта с датами и темами.', k: 'материалы лента заметки свежее', p: 1 },
         { t: 'Материалы: архив', u: 'materials-archive.html', d: 'Все материалы с фильтром по темам и поиском.', k: 'архив материалы теги тема поиск', p: 0 },
         { t: 'Сообщество', u: 'community.html', d: 'Чат «Пересадка», психологи, истории семей и помощь фонда.', k: 'сообщество чат пересадка психолог история фонд', p: 0 },
         { t: 'О проекте', u: 'about.html', d: 'Кто делает портал и как проверяются материалы.', k: 'фонд настенька редакция эксперты доверие', p: 0 },
-        { t: 'Что смотреть в анализе мочи и креатинине', u: 'article-analizy.html', d: 'Белок, эритроциты, креатинин и СКФ без латыни.', k: 'анализ мочи креатинин скф белок эритроциты норма', p: 0 },
+        { t: 'Что смотреть в анализе мочи и креатинине', u: 'article-analizy.html', d: 'Белок, эритроциты, креатинин и СКФ без латыни.', k: 'анализ мочи креатинин скф белок эритроциты норма белок в моче протеинурия микроальбуминурия взрослый', p: 0 },
         { t: 'Сколько воды пить на самом деле', u: 'article-voda.html', d: 'Миф про два литра и понятные ориентиры.', k: 'вода литры жажда моча жидкость', p: 0 },
-        { t: 'Соль, белок и повседневная еда', u: 'article-pitanie.html', d: 'Где скрытая соль и почему не нужны жёсткие диеты.', k: 'соль белок диета продукты еда', p: 0 },
+        { t: 'Соль, белок и повседневная еда', u: 'article-pitanie.html', d: 'Где скрытая соль и почему не нужны жёсткие диеты.', k: 'соль белок диета продукты еда питание', p: 0 },
         { t: 'Аптечка, которая не вредит почкам', u: 'article-lekarstva.html', d: 'Обезболивающие, травы и БАДы при долгом приёме.', k: 'лекарства аптечка нпвс травы бады безопасность', p: 0 },
         { t: 'Отёки по утрам', u: 'article-oteki.html', d: 'Когда виноваты почки, а когда — соль и недосып.', k: 'отёки под глазами почки сон давление', p: 0 },
         { t: '«Чистка почек» и БАДы', u: 'article-mify.html', d: 'Спокойный разбор популярных обещаний.', k: 'мифы чистка почек бады реклама', p: 0 },
@@ -581,29 +724,64 @@
         { t: 'Если у близких были болезни почек', u: 'article-nasledstvo.html', d: 'Наследственность — повод не откладывать чек-ап.', k: 'наследственность семья родственники поликистоз', p: 0 }
       ];
 
+      var stem = function (w) {
+        w = w.toLowerCase().replace(/ё/g, 'е');
+        if (w.length > 3) w = w.replace(/(ами|ями|ов|ев|ом|ем|ах|ях|у|ю|а|я|и|е|ы|ь)$/, '');
+        return w;
+      };
+      var stopWords = { 'в': 1, 'и': 1, 'на': 1, 'с': 1, 'по': 1, 'для': 1, 'как': 1, 'что': 1, 'или': 1, 'из': 1, 'у': 1, 'же': 1 };
+      var tokens = function (text) {
+        return (text || '').toLowerCase().replace(/ё/g, 'е')
+          .replace(/[\/\\.,;:()\-+]+/g, ' ')
+          .split(/\s+/).map(stem)
+          .filter(function (w) { return w.length > 1 && !stopWords[w]; });
+      };
+      searchIndex.forEach(function (item) {
+        item._words = tokens(item.t + ' ' + item.d + ' ' + item.k);
+      });
+
       var renderSearch = function () {
-        var q = (searchInput.value || '').trim().toLowerCase();
-        var words = q ? q.split(/\s+/) : [];
+        var q = (searchInput.value || '').trim();
+        var words = tokens(q);
         var found = searchIndex.filter(function (item) {
           if (!words.length) return !!item.p;
-          var hay = (item.t + ' ' + item.d + ' ' + item.k).toLowerCase();
-          return words.every(function (w) { return hay.indexOf(w) > -1; });
+          return words.every(function (w) { return item._words.indexOf(w) > -1; });
+        });
+        found.sort(function (a, b) {
+          var score = function (item) {
+            var s = item.p === 0 ? 2 : 0;
+            if (item.u.indexOf('article-') === 0 ||
+                (item.u.indexOf('knowledge-') === 0 && item.u !== 'knowledge.html')) s += 1;
+            if (words.length && tokens(item.t).indexOf(words[0]) > -1) s += 3;
+            return s;
+          };
+          return score(b) - score(a);
         });
         if (searchCount) searchCount.textContent = q ? ('Найдено: ' + found.length) : 'Часто ищут:';
         if (!searchResults) return;
         if (!found.length) {
-          searchResults.innerHTML = '<div class="product-empty is-visible">Ничего не нашлось. Попробуйте другое слово — например, «анализы», «диализ» или «льготы».</div>';
+          searchResults.innerHTML = '<div class="product-empty is-visible">Ничего не нашлось. ' +
+            'Попробуйте другое слово — например, «анализы», «диализ» или «льготы». ' +
+            'Если ищете направление 057/у, откройте <a href="rights.html#057">памятку по 057/у</a>.</div>';
           return;
         }
         searchResults.innerHTML = found.map(function (item) {
+          var isMaterial = item.u.indexOf('article-') === 0 ||
+            (item.u.indexOf('knowledge-') === 0 && item.u !== 'knowledge.html');
           return '<a class="search-result" href="' + item.u + '">' +
-            '<small>' + (item.u.indexOf('article-') === 0 ? 'Материал' : 'Раздел') + '</small>' +
+            '<small>' + (isMaterial ? 'Материал' : 'Раздел') + '</small>' +
             '<b>' + item.t + '</b><p>' + item.d + '</p></a>';
         }).join('');
       };
 
+      var fromUrl = new URLSearchParams(window.location.search).get('q');
+      if (fromUrl && searchInput) searchInput.value = fromUrl;
       searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        var q = (searchInput.value || '').trim();
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + (q ? '?q=' + encodeURIComponent(q) : ''));
+        }
         renderSearch();
       });
       if (searchInput) searchInput.addEventListener('input', renderSearch);

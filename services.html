@@ -30,7 +30,7 @@
     </nav>
     <div class="header-actions">
       <a class="btn btn-ghost btn-sm" href="search.html">Найти</a>
-      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button><button class="burger-label" id="burgerLabel" type="button">Разделы</button>
     </div>
   </div>
 </header>
@@ -62,11 +62,11 @@
         </div>
         <div class="field-grid" data-child-fields hidden>
           <div class="field"><label for="calcChildAge">Возраст, лет</label><input id="calcChildAge" type="number" min="0" max="17" step="0.5" value="8"></div>
-          <div class="field"><label for="calcChildSex">Пол</label><select id="calcChildSex"><option value="female">девочка</option><option value="male">мальчик</option></select></div>
           <div class="field"><label for="calcHeight">Рост ребёнка, см</label><input id="calcHeight" type="number" min="40" max="210" value="120"></div>
           <div class="field"><label for="calcCrC">Креатинин</label><input id="calcCrC" type="number" min="5" step="0.1" value="35"></div>
           <div class="field"><label for="calcUnitC">Единицы</label><select id="calcUnitC"><option value="umol">мкмоль/л</option><option value="mgdl">мг/дл</option></select></div>
         </div>
+        <p class="source-note">Для детей расчёт ориентировочный: формула Шварца учитывает рост и креатинин. До года и при сомнениях результат обсуждают с врачом.</p>
         <button class="btn btn-primary mt-16" type="submit">Рассчитать</button>
       </form>
       <div class="calc-result" data-calc-result><b></b><p></p></div>
@@ -82,18 +82,18 @@
       <h2>В зоне ли вы риска?</h2>
       <p class="lead-sub">Семь вопросов и короткий список анализов для разговора с врачом.</p>
       <div data-riskquiz>
-        <div class="quiz-q"><b>1. Давление иногда выше 130/80?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
-        <div class="quiz-q"><b>2. У вас диабет или повышенный сахар?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
+        <div class="quiz-q"><b>1. Давление иногда выше 130/80?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не знаю</button></div></div>
+        <div class="quiz-q"><b>2. У вас диабет или повышенный сахар?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не знаю</button></div></div>
         <div class="quiz-q"><b>3. Принимаете обезболивающие чаще двух раз в неделю?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
         <div class="quiz-q"><b>4. По утрам бывают отёки под глазами?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
-        <div class="quiz-q"><b>5. У близких родственников были болезни почек?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
+        <div class="quiz-q"><b>5. У близких родственников были болезни почек?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не знаю</button></div></div>
         <div class="quiz-q"><b>6. Курите?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
         <div class="quiz-q"><b>7. Обсуждали с врачом, какие анализы и как часто сдавать?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="0">Да</button><button class="quiz-opt" type="button" data-risk="1">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не помню</button></div></div>
         <button class="btn btn-primary mt-16" type="button" data-riskgo>Показать результат</button>
         <p class="quiz-hint" data-riskhint>Ответьте на все вопросы — результат появится ниже.</p>
         <div class="quiz-result warn" data-riskresult="high"><b>Стоит уделить почкам внимание.</b> Обсудите с терапевтом мочу, креатинин с СКФ и, при диабете, микроальбуминурию.</div>
         <div class="quiz-result mid" data-riskresult="mid"><b>Есть повод уточнить.</b> Спросите врача, какие анализы и как часто сдавать, и контролируйте давление.</div>
-        <div class="quiz-result ok" data-riskresult="low"><b>По ответам всё спокойно.</b> Если что-то беспокоит, обсудите с врачом план наблюдения.</div>
+        <div class="quiz-result ok" data-riskresult="low"><b>Тревожных ответов нет.</b> Это не вывод о здоровье — анализы и план наблюдения обсудите с врачом.</div>
       </div>
       <p class="source-note">Тест не ставит диагноз. Если что-то беспокоит, сходите на приём.</p>
     </div>
