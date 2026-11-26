@@ -21,9 +21,12 @@
     <nav class="main-nav" id="mainNav">
       <a href="health.html">Здоровье</a>
       <a href="risk.html">Группы риска</a>
-      <a href="parents.html">Ребёнок с ХБП</a>
+      <a href="parents.html">Ребёнок с ХПН</a>
       <a href="knowledge.html">Знания</a>
       <a href="read.html">Почитать</a>
+      <a href="services.html" class="is-active">Сервисы</a>
+      <a href="doctors.html">Врачам</a>
+      <a href="about.html">О проекте</a>
     </nav>
     <div class="header-actions">
       <a class="btn btn-ghost btn-sm" href="search.html">Найти</a>
@@ -31,12 +34,12 @@
     </div>
   </div>
 </header>
-<div class="container"><div class="crumbs"><a href="index.html">Главная</a> / <span>Инструменты</span></div></div>
+<div class="container"><div class="crumbs"><a href="index.html">Главная</a> / <span>Сервисы</span></div></div>
 <section class="page-head">
   <div class="container">
-    <span class="eyebrow">Инструменты</span>
-    <h1>Проверить и понять без лишних слов</h1>
-    <p class="sub">Они не ставят диагноз. Они помогают подготовиться к разговору с врачом.</p>
+    <span class="eyebrow">Сервисы</span>
+    <h1>Рассчитать, проверить, подготовиться</h1>
+    <p class="sub">Калькулятор СКФ, тест рисков и справочник продуктов. Они не ставят диагноз, но помогают прийти к врачу с вопросами.</p>
   </div>
 </section>
 
@@ -67,7 +70,7 @@
         <button class="btn btn-primary mt-16" type="submit">Рассчитать</button>
       </form>
       <div class="calc-result" data-calc-result><b></b><p></p></div>
-      <p class="source-note">Расчёт ориентировочный. Для взрослых используется CKD-EPI 2021, для детей — формула Шварца с коэффициентом по возрасту и полу. Результат обсудите с врачом: важны также анализы мочи, давление и возраст.</p>
+      <p class="source-note">Расчёт ориентировочный. Для взрослых используется CKD-EPI 2021, для детей — формула Шварца (36,5 × рост см / креатинин мкмоль/л). Результат обсудите с врачом: важны также анализы мочи, давление и возраст.</p>
     </div>
   </div>
 </section>
@@ -85,12 +88,12 @@
         <div class="quiz-q"><b>4. По утрам бывают отёки под глазами?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
         <div class="quiz-q"><b>5. У близких родственников были болезни почек?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
         <div class="quiz-q"><b>6. Курите?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="1">Да</button><button class="quiz-opt" type="button" data-risk="0">Нет</button><button class="quiz-opt" type="button" data-risk="0">Не знаю</button></div></div>
-        <div class="quiz-q"><b>7. За год сдавали анализы крови и мочи?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="0">Да</button><button class="quiz-opt" type="button" data-risk="1">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не помню</button></div></div>
+        <div class="quiz-q"><b>7. Обсуждали с врачом, какие анализы и как часто сдавать?</b><div class="quiz-options"><button class="quiz-opt" type="button" data-risk="0">Да</button><button class="quiz-opt" type="button" data-risk="1">Нет</button><button class="quiz-opt" type="button" data-risk="1">Не помню</button></div></div>
         <button class="btn btn-primary mt-16" type="button" data-riskgo>Показать результат</button>
         <p class="quiz-hint" data-riskhint>Ответьте на все вопросы — результат появится ниже.</p>
         <div class="quiz-result warn" data-riskresult="high"><b>Стоит уделить почкам внимание.</b> Обсудите с терапевтом мочу, креатинин с СКФ и, при диабете, микроальбуминурию.</div>
-        <div class="quiz-result mid" data-riskresult="mid"><b>Есть повод уточнить.</b> Анализы мочи и крови раз в год плюс контроль давления.</div>
-        <div class="quiz-result ok" data-riskresult="low"><b>По ответам всё спокойно.</b> Если что-то беспокоит, обсудите с врачом; обычные проверки — моча и креатинин.</div>
+        <div class="quiz-result mid" data-riskresult="mid"><b>Есть повод уточнить.</b> Спросите врача, какие анализы и как часто сдавать, и контролируйте давление.</div>
+        <div class="quiz-result ok" data-riskresult="low"><b>По ответам всё спокойно.</b> Если что-то беспокоит, обсудите с врачом план наблюдения.</div>
       </div>
       <p class="source-note">Тест не ставит диагноз. Если что-то беспокоит, сходите на приём.</p>
     </div>
@@ -101,7 +104,7 @@
   <div class="container">
     <div class="calc-card" id="products" style="max-width:none">
       <span class="eyebrow">03 · Справочник</span>
-      <h2>Продукты при ХБП</h2>
+      <h2>Продукты при ХПН</h2>
       <p class="lead-sub">Показатели на 100 г и короткая подсказка по готовке. Демо-таблица.</p>
       <div class="product-search"><input id="productSearch" type="search" placeholder="Например: банан, картофель, творог…" aria-label="Поиск продукта"><span class="tag tag-outline">12 продуктов в демо</span></div>
       <div class="product-table" id="productTable">
@@ -120,7 +123,7 @@
         <div class="product-row" data-level="ok"><b>Груша</b><span class="light">0,4 г</span><span class="light">116 мг</span><span class="light">12 мг</span><span class="light">1 мг</span><span class="tip">Обычно подходит без ограничений.</span></div>
       </div>
       <div class="product-empty" id="productEmpty">Ничего не нашлось — попробуйте другое название.</div>
-      <p class="source-note">Цифры ориентировочные. При ХБП ограничения зависят от стадии, анализов и возраста — их определяет врач.</p>
+      <p class="source-note">Цифры ориентировочные. При ХПН ограничения зависят от стадии, анализов и возраста — их определяет врач.</p>
     </div>
   </div>
 </section>
@@ -134,7 +137,7 @@
           <span class="brand-text"><b>почка</b><small>проект фонда «Настенька»</small></span>
         </a>
         <p>Просветительский портал фонда «Настенька». Объясняем почки простыми словами и помогаем семьям разобраться с лечением.</p>
-        <span class="footer-hand">Проверено врачами · опыт семей фонда</span>
+        <span class="footer-hand">Сверено с источниками · опыт семей фонда</span>
         <div class="socials">
           <a href="https://vk.com/fondnastenka" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
           <a href="https://t.me/bf_nastenka" target="_blank" rel="noopener" title="Telegram">TG</a>
@@ -145,12 +148,13 @@
         <h5>Разделы</h5>
         <a href="health.html">Здоровье</a>
         <a href="risk.html">Группы риска</a>
-        <a href="parents.html">Ребёнок с ХБП</a>
+        <a href="parents.html">Ребёнок с ХПН</a>
         <a href="knowledge.html">Знания</a>
         <a href="read.html">Почитать</a>
-        <a href="services.html">Инструменты</a>
-        <a href="search.html">Поиск</a>
+        <a href="services.html">Сервисы</a>
+        <a href="doctors.html">Врачам</a>
         <a href="about.html">О проекте</a>
+        <a href="search.html">Поиск</a>
       </div>
       <div class="footer-col">
         <h5>Фонд «Настенька»</h5>
