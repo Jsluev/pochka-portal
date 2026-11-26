@@ -390,6 +390,9 @@ h3 { font-size: 18px; line-height: 1.38; }
 .sit-card h3, .clinic-mini b, .know-card h3, .route-card h3, .fact-card h4 { font-family: var(--font); font-size: 18px; font-weight: 600; line-height: 1.3; }
 .sit-card p, .know-card p, .route-card p, .fact-card p, .clinic-sum, .mini-line { font-size: 14px; color: var(--ink-2); }
 .sit-more, .clinic-foot .more, .clinic-mini .more, .route-card .more, .know-card .more { font-size: 13px; font-weight: 700; color: var(--accent); text-decoration: none; }
+.know-card { color: var(--ink); text-decoration: none; border-left: 3px solid var(--line); padding-left: 20px; }
+.know-card:hover { color: var(--ink); text-decoration: none; border-left-color: var(--accent); }
+.know-card:hover h3 { color: var(--accent-deep); }
 .sit-card:hover .sit-more, .clinic-card:hover .clinic-name { color: var(--accent-deep); }
 .clinic-name { font-family: var(--font); font-size: 19px; font-weight: 600; line-height: 1.28; }
 .clinic-meta { display: grid; gap: 7px; font-size: 13px; color: var(--ink-2); }
@@ -765,6 +768,11 @@ h3 { font-size: 18px; line-height: 1.38; }
 .feed-tags span.is-blue { color: var(--accent-deep); border-color: #c8dbe6; }
 .feed-tags span.is-warm { color: var(--alert); border-color: #e6cdc2; }
 .feed-more { grid-column: 3; grid-row: 1 / span 3; align-self: center; font-size: 13.5px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+.archive-filters { display: grid; gap: 14px; margin-bottom: 26px; }
+.archive-filters .search-form { max-width: 520px; }
+.archive-count { font-size: 13px; color: var(--muted); }
+.archive-empty { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; font-size: 14.5px; color: var(--muted); }
 
 /* Врачи: спокойная профессиональная сетка */
 .pain-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }

@@ -478,6 +478,45 @@
       }
     }
 
+    /* ---------- Архив материалов: темы и поиск по названию ---------- */
+    var archive = document.querySelector('[data-archive]');
+    if (archive) {
+      var archItems = $$('[data-archive-item]', archive);
+      var archChips = $$('[data-archive-tag]', archive);
+      var archInput = archive.querySelector('[data-archive-search]');
+      var archCount = archive.querySelector('[data-archive-count]');
+      var archEmpty = archive.querySelector('[data-archive-empty]');
+      var activeTag = 'all';
+      var applyArchive = function () {
+        var q = (archInput ? archInput.value : '').trim().toLowerCase();
+        var shown = 0;
+        archItems.forEach(function (item) {
+          var tags = (item.getAttribute('data-tags') || '').split(' ');
+          var text = (item.textContent || '').toLowerCase();
+          var byTag = activeTag === 'all' || tags.indexOf(activeTag) !== -1;
+          var byText = !q || text.indexOf(q) !== -1;
+          var visible = byTag && byText;
+          item.hidden = !visible;
+          if (visible) shown++;
+        });
+        if (archCount) archCount.textContent = 'Показано: ' + shown + ' из ' + archItems.length;
+        if (archEmpty) archEmpty.hidden = shown !== 0;
+      };
+      archChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          activeTag = chip.getAttribute('data-archive-tag') || 'all';
+          archChips.forEach(function (c) {
+            var on = c === chip;
+            c.classList.toggle('is-active', on);
+            c.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          applyArchive();
+        });
+      });
+      if (archInput) archInput.addEventListener('input', applyArchive);
+      applyArchive();
+    }
+
     /* ---------- Поиск по справочнику продуктов ---------- */
     var productSearch = document.getElementById('productSearch');
     if (productSearch) {
@@ -507,7 +546,7 @@
       var searchIndex = [
         { t: 'Здоровье и профилактика', u: 'health.html', d: 'Как работают почки, анализы, вода, питание и аптечка.', k: 'почки анализы моча креатинин вода соль питание лекарства отёки мифы', p: 1 },
         { t: 'Группы риска', u: 'risk.html', d: 'Давление, диабет и наследственность: что контролировать.', k: 'давление диабет сахар наследственность риск чек-лист', p: 1 },
-        { t: 'Навигатор для семей', u: 'parents.html', d: 'Маршруты, клиники, документы и поддержка семей, где ребёнок с ХПН.', k: 'ребёнок хпн дети родители маршрут помощь навигатор', p: 1 },
+        { t: 'Ребёнок с ХПН', u: 'parents.html', d: 'Маршруты, клиники, документы и поддержка семей, где ребёнок с ХПН.', k: 'ребёнок хпн дети родители маршрут помощь', p: 1 },
         { t: 'Сервисы', u: 'services.html', d: 'Калькулятор СКФ, тест рисков и справочник продуктов.', k: 'скф калькулятор тест продукты калий фосфор белок сервисы', p: 1 },
         { t: 'Каталог учреждений', u: 'clinics.html', d: 'Профильные центры, фильтры по городу, возрасту и помощи.', k: 'клиника центр учреждение город найти трансплантация диализ', p: 1 },
         { t: 'Маршруты получения помощи', u: 'routes.html', d: 'Пошаговые маршруты от диагноза до лечения.', k: 'маршрут этапы диагноз направление лечение', p: 1 },
@@ -519,7 +558,6 @@
         { t: 'Образ жизни', u: 'knowledge-lifestyle.html', d: 'Давление, вода, сон, лекарства и нагрузка.', k: 'вода давление сон лекарства нагрузка привычки', p: 0 },
         { t: 'Диализ', u: 'knowledge-dialysis.html', d: 'Гемодиализ и перитонеальный диализ, подготовка и жизнь на лечении.', k: 'диализ гемодиализ перитонеальный фистула катетер', p: 0 },
         { t: 'Трансплантация почки', u: 'knowledge-transplant.html', d: 'Обследование, лист ожидания, операция и наблюдение после.', k: 'трансплантация пересадка донор иммуносупрессия отторжение', p: 0 },
-        { t: 'Исследования и данные', u: 'knowledge-research.html', d: 'Какие источники лежат в основе материалов портала.', k: 'исследования источники доказательства', p: 0 },
         { t: 'Как мы проверяем данные', u: 'knowledge-checks.html', d: 'Редакционный процесс и обновление материалов.', k: 'проверка редакция врач источники дата', p: 0 },
         { t: 'Врачам', u: 'doctors.html', d: 'Справочники, чек-листы и памятки для нефрологов и педиатров.', k: 'врач нефролог педиатр чек-лист справочник', p: 1 },
         { t: 'Врачам: справочник', u: 'doctors-reference.html', d: 'Стадии, альбуминурия, критерии направления и базовые ориентиры.', k: 'скф альбуминурия направление врач референс', p: 0 },
@@ -528,7 +566,8 @@
         { t: 'Врачам: неотложные состояния', u: 'doctors-urgent.html', d: 'Красные флаги и порядок действий.', k: 'неотложные красные флаги калий отёк', p: 0 },
         { t: 'Врачам: переход', u: 'doctors-transition.html', d: 'Перевод пациента из педиатрии во взрослую сеть.', k: 'переход преемственность взрослая сеть', p: 0 },
         { t: 'Врачам: памятки', u: 'doctors-tools.html', d: 'Шаблоны и чек-листы для приёма и сопровождения.', k: 'памятка чек-лист шаблон анкета', p: 0 },
-        { t: 'Почитать', u: 'read.html', d: 'Заметки, советы и сообщения проекта — отдельная лента.', k: 'почитать лента заметки', p: 0 },
+        { t: 'Материалы', u: 'materials.html', d: 'Свежие материалы проекта с датами и темами.', k: 'материалы лента заметки свежее', p: 1 },
+        { t: 'Материалы: архив', u: 'materials-archive.html', d: 'Все материалы с фильтром по темам и поиском.', k: 'архив материалы теги тема поиск', p: 0 },
         { t: 'Сообщество', u: 'community.html', d: 'Чат «Пересадка», психологи, истории семей и помощь фонда.', k: 'сообщество чат пересадка психолог история фонд', p: 0 },
         { t: 'О проекте', u: 'about.html', d: 'Кто делает портал и как проверяются материалы.', k: 'фонд настенька редакция эксперты доверие', p: 0 },
         { t: 'Что смотреть в анализе мочи и креатинине', u: 'article-analizy.html', d: 'Белок, эритроциты, креатинин и СКФ без латыни.', k: 'анализ мочи креатинин скф белок эритроциты норма', p: 0 },

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Все материалы — архив статей | Фонд «Настенька»</title>
+<meta name="description" content="Архив материалов портала «почка»: статьи и заметки с датами, темами и поиском по названию.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="materials-archive">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z"/></svg></span>
+      <span class="brand-text"><b>почка</b><small>проект фонда «Настенька»</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="health.html">Здоровье</a>
+      <a href="risk.html">Группы риска</a>
+      <a href="parents.html">Ребёнок с ХПН</a>
+      <a href="knowledge.html">Знания</a>
+      <a href="materials.html" class="is-active">Материалы</a>
+      <a href="services.html">Сервисы</a>
+      <a href="doctors.html">Врачам</a>
+      <a href="about.html">О проекте</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost btn-sm" href="search.html">Найти</a>
+      <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="container"><nav class="crumbs"><a href="index.html">Главная</a> / <a href="materials.html">Материалы</a> / <span>Архив</span></nav></div>
+<section class="page-head container">
+  <span class="eyebrow">Архив</span>
+  <h1>Все материалы</h1>
+  <p class="sub">Статьи и заметки с датами и темами. Выберите тему или найдите материал по названию.</p>
+</section>
+
+<section class="section" style="padding-top:24px" data-archive>
+  <div class="container">
+    <div class="archive-filters">
+      <form class="search-form" role="search" onsubmit="return false">
+        <input type="search" data-archive-search placeholder="Найти по названию или теме" aria-label="Поиск по архиву">
+      </form>
+      <div class="chips-row">
+        <button class="chip is-active" type="button" data-archive-tag="all" aria-pressed="true">Все</button>
+        <button class="chip" type="button" data-archive-tag="analyzy" aria-pressed="false">Анализы</button>
+        <button class="chip" type="button" data-archive-tag="pitanie" aria-pressed="false">Питание</button>
+        <button class="chip" type="button" data-archive-tag="privychki" aria-pressed="false">Привычки</button>
+        <button class="chip" type="button" data-archive-tag="lechenie" aria-pressed="false">Лечение</button>
+        <button class="chip" type="button" data-archive-tag="deti" aria-pressed="false">Дети</button>
+        <button class="chip" type="button" data-archive-tag="risk" aria-pressed="false">Группы риска</button>
+        <button class="chip" type="button" data-archive-tag="soobshenie" aria-pressed="false">Сообщения проекта</button>
+      </div>
+      <p class="archive-count" data-archive-count>Показано: 16 из 16</p>
+    </div>
+
+    <div class="feed-list">
+      <a class="feed-item" data-archive-item data-tags="soobshenie" href="index.html">
+        <span class="feed-date">26.11.2026</span>
+        <h3>Цифры на главной: что за ними стоит</h3>
+        <p>Коротко о показателях работы почек и о том, как их читать без тревоги.</p>
+        <span class="feed-tags"><span class="is-blue">Сообщение проекта</span><span>Данные</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="analyzy" href="article-analizy.html">
+        <span class="feed-date">19.11.2026</span>
+        <h3>Альбуминурия: вторая цифра, которую легко пропустить</h3>
+        <p>СКФ показывает фильтрацию, а альбумин в моче — повреждение. Почему смотрят обе цифры.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Анализы</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="pitanie" href="knowledge-nutrition.html">
+        <span class="feed-date">06.11.2026</span>
+        <h3>Питание без жёстких диет</h3>
+        <p>Соль, белок, калий и фосфор: какие ограничения зависят от анализов и кто их назначает.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Питание</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="analyzy" href="knowledge-stages.html">
+        <span class="feed-date">24.10.2026</span>
+        <h3>Стадии ХПН: G1–G5 и A1–A3 простыми словами</h3>
+        <p>В разборе — таблицы категорий СКФ и альбуминурии.</p>
+        <span class="feed-tags"><span class="is-warm">Разбор</span><span>Стадии</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="analyzy" href="article-voda.html">
+        <span class="feed-date">12.10.2026</span>
+        <h3>Сколько воды пить на самом деле</h3>
+        <p>Правило «ровно два литра» удобно запомнить, но подходит не всем.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Привычки</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="lechenie" href="knowledge-dialysis.html">
+        <span class="feed-date">28.09.2026</span>
+        <h3>Диализ: два вида лечения и подготовка</h3>
+        <p>Как работают гемодиализ и перитонеальный диализ, что обсудить с командой.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Лечение</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="lechenie deti" href="knowledge-transplant.html">
+        <span class="feed-date">15.09.2026</span>
+        <h3>Пересадка почки: этапы и вопросы врачу</h3>
+        <p>Обследование, лист ожидания, операция и наблюдение после неё.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Лечение</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="privychki pitanie" href="article-pitanie.html">
+        <span class="feed-date">03.09.2026</span>
+        <h3>Соль, белок и повседневная еда</h3>
+        <p>Где скрытая соль и почему не нужны жёсткие диеты без врача.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Питание</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="privychki" href="article-lekarstva.html">
+        <span class="feed-date">21.08.2026</span>
+        <h3>Аптечка, которая не вредит почкам</h3>
+        <p>Обезболивающие, травы и БАДы при долгом приёме.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Безопасность</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="analyzy" href="article-oteki.html">
+        <span class="feed-date">07.08.2026</span>
+        <h3>Отёки по утрам</h3>
+        <p>Когда виноваты почки, а когда — соль и недосып.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Симптомы</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="privychki" href="article-mify.html">
+        <span class="feed-date">25.07.2026</span>
+        <h3>«Чистка почек» и БАДы</h3><p>Спокойный разбор популярных обещаний.</p>
+        <span class="feed-tags"><span class="is-warm">Разбор</span><span>Мифы</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="risk" href="article-davlenie.html">
+        <span class="feed-date">11.07.2026</span>
+        <h3>Почему высокое давление влияет на почки</h3>
+        <p>Связь, которую не чувствуешь годами.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Группы риска</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="risk" href="article-diabet.html">
+        <span class="feed-date">29.06.2026</span>
+        <h3>Диабет и почки: два анализа в год</h3>
+        <p>Что стоит обсудить на приёме и какие анализы сдавать.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Группы риска</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="risk" href="article-nasledstvo.html">
+        <span class="feed-date">14.06.2026</span>
+        <h3>Если у близких были болезни почек</h3>
+        <p>Наследственность — повод не откладывать чек-ап.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Группы риска</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="deti" href="knowledge-diagnoses.html">
+        <span class="feed-date">02.06.2026</span>
+        <h3>Диагнозы и состояния: краткий справочник</h3>
+        <p>Что стоит за названием и какие вопросы задать врачу.</p>
+        <span class="feed-tags"><span class="is-warm">Разбор</span><span>Справочник</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+      <a class="feed-item" data-archive-item data-tags="deti lechenie" href="parents.html">
+        <span class="feed-date">18.05.2026</span>
+        <h3>Маршруты и клиники для семей</h3>
+        <p>Куда обращаться, как попасть на лечение и какие документы собрать.</p>
+        <span class="feed-tags"><span class="is-blue">Совет</span><span>Дети</span></span>
+        <span class="feed-more">Читать →</span>
+      </a>
+    </div>
+    <div class="archive-empty" data-archive-empty hidden>Ничего не нашлось. Попробуйте другую тему или слово.</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M16.5 5.5c-5.2 0-9 3.8-9 8.4 0 2.6 1 4.3 2.3 5.8-1.7 1-2.9 2.6-2.9 4.8 0 2 1 3.3 2.6 3.3 2.2 0 3.6-1.7 3.9-4.2 3.3 2.4 7.3 3 9.6 1.9 3.4-1.5 5.5-4.4 5.5-8.4 0-6.8-5.4-11.6-12-11.6z"/></svg></span>
+          <span class="brand-text"><b>почка</b><small>проект фонда «Настенька»</small></span>
+        </a>
+        <p>Просветительский портал фонда. Объясняем почки простыми словами и помогаем семьям разобраться с лечением.</p>
+        <span class="footer-hand">Сверено с источниками · опыт семей фонда</span>
+        <div class="socials">
+          <a href="https://vk.com/fondnastenka" target="_blank" rel="noopener" title="ВКонтакте">VK</a>
+          <a href="https://t.me/bf_nastenka" target="_blank" rel="noopener" title="Telegram">TG</a>
+          <a href="https://ok.ru/fondnastenka" target="_blank" rel="noopener" title="Одноклассники">OK</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Разделы</h5>
+        <a href="health.html">Здоровье</a>
+        <a href="risk.html">Группы риска</a>
+        <a href="parents.html">Ребёнок с ХПН</a>
+        <a href="knowledge.html">Знания</a>
+        <a href="materials.html">Материалы</a>
+        <a href="services.html">Сервисы</a>
+        <a href="doctors.html">Врачам</a>
+        <a href="about.html">О проекте</a>
+        <a href="search.html">Поиск</a>
+      </div>
+      <div class="footer-col">
+        <h5>Фонд «Настенька»</h5>
+        <p><a href="tel:+79855501746">+7 985 550-17-46</a></p>
+        <p><a href="mailto:fond@nastenka.ru">fond@nastenka.ru</a></p>
+        <p><a href="https://nastenka.ru/" target="_blank" rel="noopener">Сайт фонда ↗</a></p>
+        <p class="mt-16">Материалы не заменяют консультацию врача.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Благотворительный фонд «Настенька» · Материалы не заменяют консультацию врача.</p>
+      <p><a href="#">Публичная оферта</a> · <a href="#">Политика конфиденциальности</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
