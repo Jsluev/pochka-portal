@@ -454,7 +454,7 @@
         opt.classList.add('is-on');
         row.setAttribute('data-answer', opt.getAttribute('data-risk') || '0');
         $$('.quiz-result', riskQuiz).forEach(function (r) { r.classList.remove('is-visible'); });
-        if (riskHint) riskHint.textContent = 'Можно менять ответы — результат появится, когда будет готово.';
+        if (riskHint) riskHint.textContent = 'Можно менять ответы — результат появится после нажатия кнопки.';
       });
 
       var riskGo = riskQuiz.querySelector('[data-riskgo]');
